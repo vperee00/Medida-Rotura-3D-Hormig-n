@@ -6,10 +6,41 @@ En esta sección se explicará el uso de la aplicación para visualizar un par d
 \section{Requisitos de usuarios}
 Tener instalado Python 3. Y se recomienda tener instalado Conda para crear un entorno donde instalar todas las dependencias de Python.
 
+Tener los siguientes archivos de los modelos:
+
+En \path{src/App/Modelos/vggt/model.pt} $\rightarrow$
+\url{https://huggingface.co/facebook/VGGT-1B/blob/main/model.pt}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vitl_eth3d.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vitl_kitti.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vitl_middlebury.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vitl_sceneflow.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vits_rvc.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DEFOM-Stereo/DEFOM-Stereo-main/defomstereo_vits_sceneflow.pth} $\rightarrow$
+\href{https://drive.google.com/drive/folders/1cZLcIjHlmUo986gkR6FbofG1cj5BT36x}{Google Drive}
+
+En \path{src/DetectorEsquinas/Esquinas/d2_tf.pth} $\rightarrow$
+\href{https://dusmanu.com/files/d2-net/d2_tf.pth}{dusmanu.com}
+
+En \path{src/DetectorEsquinas/Esquinas/faster2d2_WASF_N8_big.pt} $\rightarrow$
+\href{https://github.com/naver/r2d2/tree/master/models}{GitHub R2D2 models}
+
+
 \section{Instalación}
 Para instalarlo se necesita clonar el repositorio o descargar el zip desde \href{https://github.com/vperee00/Medida-Rotura-3D-Hormig-n/tree/master}{https://github.com/vperee00/Medida-Rotura-3D-Hormig-n/tree/master}
 
 Para crear el entorno con todas las dependencias necesarias se puede usar el archivo environment.yml con el siguiente comando.
+
 
 \begin{lstlisting}[language=bash]
 	conda env create -f environment.yml

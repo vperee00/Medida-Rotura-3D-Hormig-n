@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  1 SEP 2025 06:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  1 SEP 2025 07:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1739,41 +1739,85 @@ LaTeX Info: Redefining \% on input line 516.
 
 
 ]
-Underfull \vbox (badness 3000) has occurred while \output is active []
+Overfull \hbox (6.7956pt too wide) in paragraph at lines 14--16
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vitl _ eth3d .
+ []
+
+
+Overfull \hbox (6.7956pt too wide) in paragraph at lines 17--19
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vitl _ kitti .
+ []
+
+
+Overfull \hbox (37.67061pt too wide) in paragraph at lines 20--22
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vitl _ middlebury .
+ []
+
+
+Overfull \hbox (31.4956pt too wide) in paragraph at lines 23--25
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vitl _ sceneflow .
+ []
+
+
+Overfull \hbox (17.2931pt too wide) in paragraph at lines 26--28
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vits _ rvc . pth$
+ []
+
+
+Underfull \vbox (badness 7963) has occurred while \output is active []
 
 
 
 [69]
-<./img/APP_inicio.png, id=787, 410.9754pt x 221.628pt>
+Overfull \hbox (31.4956pt too wide) in paragraph at lines 29--31
+[]\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
+o-[]main / defomstereo _ vits _ sceneflow .
+ []
+
+<./img/APP_inicio.png, id=795, 410.9754pt x 221.628pt>
 File: ./img/APP_inicio.png Graphic file (type png)
 <use ./img/APP_inicio.png>
-Package pdftex.def Info: ./img/APP_inicio.png  used on input line 37.
+Package pdftex.def Info: ./img/APP_inicio.png  used on input line 68.
 (pdftex.def)             Requested size: 344.69766pt x 185.88556pt.
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
-[70 <./img/APP_inicio.png>]
-<./img/APP_resultados.png, id=800, 410.0118pt x 223.7961pt>
+
+
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
+[70]
+<./img/APP_resultados.png, id=809, 410.0118pt x 223.7961pt>
 File: ./img/APP_resultados.png Graphic file (type png)
 <use ./img/APP_resultados.png>
-Package pdftex.def Info: ./img/APP_resultados.png  used on input line 47.
+Package pdftex.def Info: ./img/APP_resultados.png  used on input line 78.
 (pdftex.def)             Requested size: 344.69766pt x 188.14792pt.
-)
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
+[71 <./img/APP_inicio.png>])
 
 LaTeX Info: Redefining \. on input line 517.
 LaTeX Info: Redefining \% on input line 517.
-[71 <./img/APP_resultados.png>] (./memoria.bbl
+[72 <./img/APP_resultados.png>] (./memoria.bbl
+bibitemlist
 
-[72
+
+[73
 
 
 
 ]
-bibitemlist
-
-
-[73]
 
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
@@ -1819,7 +1863,7 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 Here is how much of TeX's memory you used:
  20636 strings out of 475109
  330987 string characters out of 5765325
- 972610 words of memory out of 5000000
+ 973610 words of memory out of 5000000
  42840 multiletter control sequences out of 15000+600000
  664700 words of font info for 202 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
@@ -1837,10 +1881,10 @@ lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/
 share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/
 type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.p
 fb>
-Output written on memoria.pdf (87 pages, 15534237 bytes).
+Output written on memoria.pdf (87 pages, 15538155 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 769 compressed objects within 8 object streams
+ 974 PDF objects out of 1000 (max. 8388607)
+ 779 compressed objects within 8 object streams
  246 named destinations out of 1000 (max. 500000)
  62384 words of extra memory for PDF output out of 74296 (max. 10000000)
 
