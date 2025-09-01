@@ -1,0 +1,132 @@
+\begin{thebibliography}{10}
+
+\bibitem{detone2018superpoint}
+Daniel DeTone, Tomasz Malisiewicz, and Andrew Rabinovich.
+\newblock Superpoint: Self-supervised interest point detection and description.
+\newblock {\em arXiv preprint arXiv:1712.07629}, 2018.
+
+\bibitem{duda1972hough}
+Richard~O. Duda and Peter~E. Hart.
+\newblock Use of the hough transformation to detect lines and curves in
+  pictures.
+\newblock {\em Communications of the ACM}, 15(1):11--15, 1972.
+
+\bibitem{dusmanu2019d2net}
+Mihai Dusmanu, Ignacio Rocco, Tom{\'a}{\v{s}} Pajdla, Marc Pollefeys, Josef
+  Sivic, Akihiko Torii, and Torsten Sattler.
+\newblock D2-net: A trainable cnn for joint description and detection of local
+  features.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 8092--8101, 2019.
+
+\bibitem{harris1988combined}
+Chris Harris and Mike Stephens.
+\newblock A combined corner and edge detector.
+\newblock In {\em Proceedings of the Alvey Vision Conference}, pages 147--151,
+  Manchester, UK, 1988. Alvey Vision Club.
+
+\bibitem{heyden2001}
+Anders Heyden and Marc Pollefeys.
+\newblock Multiple view geometry.
+\newblock In {\em Proc.\ IEEE/CVPR}, pages 45--60, 2001.
+
+\bibitem{jiang2025defomstereo}
+Hualie Jiang, Zhiqiang Lou, Laiyan Ding, Rui Xu, Minglang Tan, Wenjie Jiang,
+  and Rui Huang.
+\newblock Defom-stereo: Depth foundation model based stereo matching.
+\newblock {\em arXiv preprint arXiv:2501.09466}, 2025.
+
+\bibitem{Khan2023Image}
+A.-M. Khan, M.\, S.-H. Kee, K.~Pathan, A.-S.\, and A.-A. Nahid.
+\newblock Image processing techniques for concrete crack detection: A
+  scientometrics literature review.
+\newblock {\em Remote Sens.}, 15(9):2400, 2023.
+
+\bibitem{kiryati1991pht}
+Nahum Kiryati, Yuval Eldar, and Alfred~M. Bruckstein.
+\newblock A probabilistic hough transform.
+\newblock {\em Pattern Recognition}, 24(4):303--316, 1991.
+
+\bibitem{Lootens2020Continuous}
+Didier Lootens, Marc Schumacher, Maxime Liard, Scott~Z. Jones, Dale~P. Bentz,
+  Stefano Ricci, and Valentino Meacci.
+\newblock Continuous strength measurements of cement pastes and concretes by
+  the ultrasonic wave reflection method.
+\newblock {\em Construction and Building Materials}, 242:117902, 2020.
+
+\bibitem{matas2000ppht}
+Ji{\v{r}}{\'i} Matas, Csaba Galambos, and Josef Kittler.
+\newblock Progressive probabilistic hough transform.
+\newblock In {\em Proceedings of the British Machine Vision Conference (BMVC)},
+  pages 256--265. BMVA Press, 2000.
+
+\bibitem{MenaAlonso2023}
+Álvaro Mena-Alonso, Pedro Latorre-Carmona, Dorys~C. González, José~F.
+  Díez-Pastor, Juan~J. Rodríguez, Jesús Mínguez, and Miguel~A. Vicente.
+\newblock A cost-effective stereo camera-based system for measuring crack
+  propagation in fibre-reinforced concrete.
+\newblock {\em Archives of Civil and Mechanical Engineering}, 23:1--12, 2023.
+
+\bibitem{nvidia2022ada}
+{NVIDIA Corporation}.
+\newblock Nvidia ada science: How ada advances the science of graphics with
+  dlss 3.
+\newblock Technical report, NVIDIA, 2022.
+
+\bibitem{revaud2019r2d2}
+J{\'e}r{\^o}me Revaud, Philippe Weinzaepfel, C{\'e}sar De~Souza, No{\'e} Pion,
+  Gabriela Csurka, Yohann Cabon, and Martin Humenberger.
+\newblock R2d2: Repeatable and reliable detector and descriptor.
+\newblock {\em arXiv preprint arXiv:1906.06195}, 2019.
+
+\bibitem{rosten2006fast}
+Edward Rosten and Tom Drummond.
+\newblock Machine learning for high-speed corner detection.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, volume~1,
+  pages 430--443. Springer, 2006.
+
+\bibitem{rublee2011orb}
+Ethan Rublee, Vincent Rabaud, Kurt Konolige, and Gary Bradski.
+\newblock Orb: An efficient alternative to sift or surf.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision (ICCV)}, pages 2564--2571, 2011.
+
+\bibitem{shi1994good}
+Jianbo Shi and Carlo Tomasi.
+\newblock Good features to track.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, pages 593--600. IEEE, 1994.
+
+\bibitem{sobel1973}
+Irwin Sobel.
+\newblock Camera models and machine perception.
+\newblock In {\em Proceedings of the Stanford Artificial Intelligence Project},
+  pages 271--272. Stanford University, Stanford, USA, 1973.
+\newblock Introduced the Sobel operator for edge detection.
+
+\bibitem{stephens1991pht}
+Richard~S. Stephens.
+\newblock Probabilistic approach to the hough transform.
+\newblock {\em Image and Vision Computing}, 9(1):66--71, 1991.
+
+\bibitem{wang2025vggt}
+Jianyuan Wang, Minghao Chen, Nikita Karaev, Andrea Vedaldi, Christian
+  Rupprecht, and David Novotny.
+\newblock Vggt: Visual geometry grounded transformer.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition}, 2025.
+
+\bibitem{wen2025foundationstereo}
+Bowen Wen, Matthew Trepte, Joseph Aribido, Jan Kautz, Orazio Gallo, and Stan
+  Birchfield.
+\newblock Foundationstereo: Zero-shot stereo matching.
+\newblock In {\em Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition (CVPR)}, 2025.
+
+\bibitem{Zhang2024Review}
+J.~Zhang, L.~Peng, S.~Wen, and S.~Huang.
+\newblock A review on concrete structural properties and damage evolution
+  monitoring techniques.
+\newblock {\em Sensors}, 24(2):620, January 2024.
+
+\end{thebibliography}

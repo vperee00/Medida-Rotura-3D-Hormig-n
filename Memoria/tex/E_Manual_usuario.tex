@@ -1,0 +1,51 @@
+\apendice{Documentación de usuario}
+
+\section{Introducción}
+En esta sección se explicará el uso de la aplicación para visualizar un par de imágenes estéreo y generar la predicción de las zonas de la grieta y su distancia
+
+\section{Requisitos de usuarios}
+Tener instalado Python 3. Y se recomienda tener instalado Conda para crear un entorno donde instalar todas las dependencias de Python.
+
+\section{Instalación}
+Para instalarlo se necesita clonar el repositorio o descargar el zip desde \href{https://github.com/vperee00/Medida-Rotura-3D-Hormig-n/}{https://github.com/vperee00/Medida-Rotura-3D-Hormig-n}
+
+Para crear el entorno con todas las dependencias necesarias se puede usar el archivo environment.yml con el siguiente comando.
+
+\begin{lstlisting}[language=bash]
+	conda env create -f environment.yml
+\end{lstlisting}
+
+Y descargar el archivo del modelo se puede encontrar en \href{https://huggingface.co/facebook/VGGT-1B/blob/main/model.pt}{VGGT model.pt} en el directorio ./Modelos/vggt/
+
+\section{Manual del usuario}
+Para ejecutar la aplicación se puede usar el script creado para ese efecto
+
+\begin{lstlisting}[language=bash]
+	ejecutar_app.sh
+\end{lstlisting}
+
+O de forma manual con 
+\begin{lstlisting}[language=bash]
+	conda activate vggt
+	python main.py
+	conda deactivate
+\end{lstlisting}
+
+\subsection{Uso de la aplicación}
+La aplicación consta de varias secciones. La barra de menú tiene el menú Archivo con la opción de Cargar 3D y de Salir. El menú Modelos con VGGT, que en el futuro se podría dar la opción a más modelos. Y el botón Ejecutar que comenzará todo el proceso de análisis del par de imágenes.
+
+\imagen{APP_inicio}{Pantalla inicial}
+
+En el campo de texto de Directorio de Resultados se selecciona donde queremos que guarde todos los archivos generados. También sirve si ya los hemos generados anteriormente, seleccionamos el directorio y con la opción de Archivo -> Cargar 3D, se mostrarán los resultados sin tener que volver a generarlos.
+
+El campo de texto de Directorio ROI se usa para seleccionar un directorio de resultados, solo que en esos resultados se usarán para seleccionar el área de ROI. Si no se selecciona nada, se usarán los resultados del primer par de imágenes que ya se encuentran generados para ser usados por defecto.
+
+Los botones Izquierda y Derecha se usan para seleccionar el par de imágenes respectivamente.
+
+Una vez que hayamos seleccionado las imágenes y un directorio donde guardar los resultados, con el botón Ejecutar se procesaran las imágenes y se mostrarán los resultados.
+
+\imagen{APP_resultados}{Pantalla con los resultados}
+
+En la sección central se mostrará la vista en 3D del par de imágenes estéreo, donde se puede usar el ratón para mover el modelo y la ruleta para el zoom. Al hacer click en esta zona se marcará ese punto alternativamente en la imagen de la parte izquierda, y en la zona superior tendremos información de los puntos seleccionados manualmente.
+
+En la parte derecha se muestra la imagen con las predicciones. Las zonas en rojo corresponden a las zonas donde se ha detectado una grieta, y las líneas verdes unen puntos indicando la distancia relativa entre ellos.

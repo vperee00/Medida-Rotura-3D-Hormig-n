@@ -1,0 +1,63 @@
+\apendice{Documentación técnica de programación}
+
+\section{Introducción}
+En esta sección vamos se darán las instruccione de como poder usar la aplicación que se ha creado para visualizar en 3D el par de imágenes y obtener la predicción de las grietas y su tamaño relativo. Esta aplicación usa el modelo VGGT.
+
+\section{Estructura de directorios}
+
+El código de la aplicación se encuentra en src/App, donde hay un script para su ejecución.
+
+En el resto de directorios se encuentra los modelos por separados con script para su ejecución, y en el directorio de imágenes d pruebas hay tres pares de imágenes representativas del inicio, mitad y final del conjuntos de imágenes usadas para poder hacer las pruebas necesarias.
+
+\dirtree{%
+	.1 /.
+	.2 ImagenesPruebas/.
+	.3 0001/.
+	.3 0401/.
+	.3 0685/.
+	.2 Memoria/.
+	.3 img/.
+	.3 tex/.
+	.2 src/.
+	.3 App/.
+	.3 DEFOM-Stereo/.
+	.3 DetectorEsquinas/.
+	.3 DetectorLineas/.
+	.3 FoundationStereo/.
+	.3 Lotes/.
+	.3 MatLab/.
+	.3 vggt/.
+}
+
+\section{Manual del programador}
+El programa está creado en Python por lo que debería ser portable a cualquier sistema, pero para su prueba y desarrollo se ha usado un sistema operativo Linux, con lo que se usarán los comandos y scripts adaptados a este sistema.
+
+Se ha usado y se recomienda hacer un entorno de Conda para ejecutar la aplicación. De esta forma se evitan los problemas de dependencias que pueden surgir con Python. Para ello se puede usar el comando
+
+\begin{lstlisting}[language=bash]
+	conda create -n vggt python=3.10
+\end{lstlisting}
+
+Para crear el entorno con todas las dependencias necesarias se puede usar el archivo environment.yml con el siguiente comando.
+
+\begin{lstlisting}[language=bash]
+	conda env create -f environment.yml
+\end{lstlisting}
+
+Es necesario que se mantenga la estructura de directorios, con el directorio Modelos donde se ejecute la aplicación, para que pueda encontrar los archivos necesarios de VGGT.
+
+El archivo model.pt que se puede encontrar en \href{https://huggingface.co/facebook/VGGT-1B/blob/main/model.pt}{VGGT model.pt} tiene que estar en el directorio ./Modelos/vggt/
+
+\section{Compilación, instalación y ejecución del proyecto}
+Una vez que tengamos el entorno creado con las todas las dependencias, para ejecutarlo se puede usar el script creado para ello con el siguiente comando
+
+\begin{lstlisting}[language=bash]
+	ejecutar_app.sh
+\end{lstlisting}
+
+O de forma manual con 
+\begin{lstlisting}[language=bash]
+	conda activate vggt
+	python main.py
+	conda deactivate
+\end{lstlisting}

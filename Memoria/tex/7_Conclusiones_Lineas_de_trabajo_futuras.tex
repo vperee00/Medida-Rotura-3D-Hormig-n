@@ -1,0 +1,48 @@
+\capitulo{7}{Conclusiones y Líneas de trabajo futuras}
+
+\section{Conclusiones}
+Los resultados obtenidos nos muestran que es posible partiendo de un par de imágenes estéreo, calcular la profundidad y ser capaces de detectar los cambios que se producen, en nuestro caso, en un bloque de homrigon al que se le somete a presión y analizar el comportamiento de los materiales.
+
+Pero aún queda mucho trabajo que hacer. Uno de los mayores problemas es que al usar modelos generalistas, estos están diseñados para obtener la profunidad en general de una escena, mientras que lo que estamos buscando con este experimento es buscar los detalles más precisos y concretos de una zona delimitada, y no buscar la representación de la escena en su global.
+
+Los resultados reflejan este comportamiento. Mientras que la representación de la escena como conjunto es muy buena, cuando bajamos a los detalles para detectar la grieta, falta la precisión necesaria para llevar a cabo un estudio exhaustivo.
+
+No es que los modelos no detecten que se produce un cambio de profundidad en esas zona, es simplemente que no lo detectan con el detalle necesario.
+
+Esto es un problema por dos vías. La primera es que se hace dificil obtener valores consistentes de profundidad en una zona concreta, y en nuestro caso, en la zona de la grieta. Y la segunda, que viene derivada de la primera, es que sin valores consistentes no se puede hacer un seguimiento de la zona para ver y estudiar su progresión.
+
+Pero a pesar de esto, los resultados también muestran que la detección es posible, y que lo que hace falta es refinar el procedimiento para que se mejore la detección de los detalles más concretos. Y con ello se podría realizar el segundo paso que es hacer el seguimiento a trevés del tiempo con un conjuntos de pares de imágenes.
+
+En la sección de Líneas de trabajo futuras comentaremos algunas de las posibles soluciones para solventar este problema.
+
+\section{Líneas de trabajo futuras}
+
+\subsection{Unity y conjunto sintético de entrenamiento}
+Como los modelos generalistas se centran en una parte del problema que no es la que necesitamos, una posible solución sería generar un modelo, ya bien puede ser desde cero o través de alguna técnica de "fine tunning" sobre un modelo anterior, que se especialice en detectar la profundidad en zonas concretas de las imagen en vez de en la escena global.
+
+Para generar este modelo, necesitaríamos un conjunto de imágenes de entrenamiento con los valores de "ground-truth" correctos sobre la posición y profundidad de las grietas. Algo que no es fácil de obtener en el mundo real.
+
+Por lo que hemos considerado la posibilidad de entrenar un modelos usando un conjunto de datos sintéticos generados a partir de escenas 3D creadas en Unity. Esto es algo que ya se ha utilizado en algunos de lo modelos que se han probado, como en Foundation Stereo.
+
+El ser escenas 3D de las que tenemos el control total, se podría obtener los valores de profundidad y posicion exactos, o entrenar al modelos con distintos valores intrínsecos y extrínsecos de las cámaras variando su posición en el espacio. O otro combinación necesaria de luz, por ejemplo. El mayor problema sería capturar las condiciones cambiantes que se dan en el mundo real, con lo habría que explorar la posibiliidad de que partiendo de un modelo que ya haya aprendido a analizar escenas reales, mejorar su precisión en los detalles que buscamos con el conjunto sintético de imaǵenes.
+
+\imagen{UNITY_par}{Par de imágenes estéreo generadas en Unity, con un patrón aleatorio, para simular un bloque de hormigón}
+
+\imagen{UNITY_vis}{Resultados de profundidad obtenidos al aplicar Foundation Stereo en el par generado con Unity}
+
+
+\subsection{Modelo entrenado con secuencia de imágenes}
+Cuando planteamos el caso de entrenar un modelo nuevo, surje la necesidad de que lo que realmente estamos buscando no es sólo detectar la grieta, si no que es su evolución a lo largo del tiempo.
+
+La idea que se podría plantear es no entrenar a un modelo sólo con un par de imágenes como entrada, si no con una secuencia completa de imágenes. De esta forma, que sea el modelo el que aprenda de a analizar como se forma la grieta y como evoluciona a lo largo de las imágenes.
+
+Esto no es algo nuevo, y hemos visto modelos que ya hacen algo parecido en cuanto al análisis o generación de imágenes. En concreto, nVidia \cite{nvidia2022ada} en su modelo para DLSS 3, usa dos imágenes y la información de los vectores de movimiento del motor 3D para generar un nuevo frame.
+
+Aplicando esta idea en nuestro caso concreto, se podrían usar varios pares de imágenes para que analizara las diferencias entre ellos. Y en el caso que su usara un conjunto de datos sintéticos, se podrían usar la infomación de movimiento para mejorar la predicción. Aunque en este último caso sería necesario estudiar si sería posible obtener está información en los experimentos del mundo real.
+
+\subsection{Usar vggt y su seguimiento de puntos}
+Una de las características de VGGT es que es capaz de hacer seguimiento de puntos en el espacio tridimensional a través de una secuencia de imágnes. El problema para aplicarlo a nuestro caso concreto, a parte de las limitaciones que hemos visto de ser un modelo generalista, es que VGGT por si mismo no es capaz de detectar ningún punto.
+
+Esto quiere decir que debemos ser nosotros lo que le digamos previamente sobre que puntos debe intentar realizar el seguimiento. El problema es que no sabemos donde se va a producir la grieta, así que dado el caso en que VGGT fuera capaz de hacer el seguimiento necesario en nuestro caso concreto, el problema cambiaría a realizar primero una detección de algún punto o puntos de interés que nos de información sobre la evolución del bloque de hormigón y de la grieta, y darle estos puntos a VGGT para que realice el seguimiento y ver su evolución a lo largo del tiempo.
+
+Esto se podría hacer manualmente en un primer paso para probar como es capaz de hacer el seguimiento VGGT, y posteriormente intentar que de una forma automática se seleccionen estos puntos.

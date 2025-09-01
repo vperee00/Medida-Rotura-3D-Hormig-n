@@ -1,0 +1,37 @@
+K = cam1.IntrinsicMatrix
+
+K =
+
+   1.0e+03 *
+
+    2.2704         0         0
+         0    2.2686         0
+    1.9315    1.0325    0.0010
+    
+    
+Distorsión radial
+rd = cam1.RadialDistortion;
+>> disp (rd)
+    0.1966   -0.3951
+    
+Distorsión tangencial
+>> td = cam1.TangentialDistortion;
+>> disp (td)
+     0     0
+     
+Rotación entre cámaras
+R = stereoParams17Dec2024.RotationOfCamera2;
+>> disp (R)
+    1.0000   -0.0008    0.0054
+    0.0008    1.0000    0.0096
+   -0.0054   -0.0096    0.9999
+   
+Traslación entre cámaras
+>> T = stereoParams17Dec2024.TranslationOfCamera2;
+>> disp (T)
+    1.3773   27.0279    0.1171
+    
+Tamaño de imagen (resolución)
+>> imgSize = cam1.ImageSize;
+>> disp (imgSize)
+        2160        3840

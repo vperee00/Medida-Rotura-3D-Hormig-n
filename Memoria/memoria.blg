@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2026/dev/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: memoria.aux
+A level-1 auxiliary file: ./tex/1_Introduccion.aux
+A level-1 auxiliary file: ./tex/2_Objetivos_del_proyecto.aux
+A level-1 auxiliary file: ./tex/3_Conceptos_teoricos.aux
+A level-1 auxiliary file: ./tex/4_Tecnicas_y_herramientas.aux
+A level-1 auxiliary file: ./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux
+A level-1 auxiliary file: ./tex/6_Trabajos_relacionados.aux
+A level-1 auxiliary file: ./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux
+A level-1 auxiliary file: ./tex/A_Plan_proyecto.aux
+A level-1 auxiliary file: ./tex/B_Requisitos.aux
+A level-1 auxiliary file: ./tex/C_Diseno.aux
+A level-1 auxiliary file: ./tex/D_Manual_programador.aux
+A level-1 auxiliary file: ./tex/E_Manual_usuario.aux
+The style file: plain.bst
+Database file #1: bibliografia.bib
+Warning--I didn't find a database entry for "wiki:latex"
+Warning--I didn't find a database entry for "koza92"
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            641 strings with 8559 characters,
+and the built_in function-call counts, 8609 in all, are:
+= -- 843
+> -- 465
+< -- 9
++ -- 187
+- -- 162
+* -- 608
+:= -- 1395
+add.period$ -- 69
+call.type$ -- 21
+change.case$ -- 145
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 330
+empty$ -- 624
+format.name$ -- 162
+if$ -- 1823
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 20
+newline$ -- 109
+num.names$ -- 42
+pop$ -- 154
+preamble$ -- 1
+purify$ -- 123
+quote$ -- 0
+skip$ -- 250
+stack$ -- 0
+substring$ -- 491
+swap$ -- 103
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 84
+warning$ -- 0
+while$ -- 77
+width$ -- 23
+write$ -- 238
+(There were 2 warnings)

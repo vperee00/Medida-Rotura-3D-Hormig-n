@@ -1,0 +1,19 @@
+\capitulo{4}{Técnicas y herramientas}
+
+\section{MatLab}
+Se ha usado MatLab para el rectificado de imágenes usando las libreías que proporciona. Se han usado los parámetros de calibración estéro calculados previamente y que fueron proporcionados en conjunto a los pares de imágenes. Contienen la información de las cámaras tanto intrínsecos como extrínsecos.
+
+Con esos parámetros, Matlab ofrece una función llamada rectifyStereoImages. Esta función es la que hace el trabajo de rectificación. Toma las dos imágenes originales y las transforma para que sus líneas epipolares queden alineadas en horizontal. Esto significa que cualquier punto de una imagen que tenga correspondencia en la otra estará en la misma fila.
+
+\section{Python y Conda}
+Se ha usado Python y la creación de entornos con Conda para la programación. Cada modelo necesita una serie de dependencias que no son compatibles entre sí, asi que se ha creado para cada modelo su propio entorno.
+
+Se han usado las herramientas y librerías que proporciona Python para los detectores de líneas y de esquinas. En concreto se ha usado la librería OpenCV que proporciona una implementación de los detectores de líneas y esquinas más importantes
+
+\section{PyQt5 y VTK}
+Se ha usado la librería PyQt5 para la creación de la interfaz de usuario de la aplicación, ya que proporciona un conjunto de elementos gráficos que nos permiten representar facilmente las imagenes y el resto de elementos gráficos. Además se integra facilmente con el resto de elementos que hemos usado en Python.
+
+Para la representación 3D hemos usado VTK porque nos ofrecía la ventaja de que podia usarse de forma directa dentro de la aplicación y comunicarse con el resto de elementos, con lo que no dependiamos de ventanas externas y de buscar mecanismos de comunicación entre aplicaciones. Esto es una característica que no nos ofrecia Open3d, por ejemplo.
+
+
+

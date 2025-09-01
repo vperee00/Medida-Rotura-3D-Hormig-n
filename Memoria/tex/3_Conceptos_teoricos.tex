@@ -1,0 +1,472 @@
+\capitulo{3}{Conceptos teóricos}
+
+En esta sección vamos a explicar los modelos y técnicas empleados para el desarrollo del proyecto y el análisis de las imágenes.
+
+\section{Rectificado de imágenes}
+
+Para la obtención del par de imágenes se han usado dos cámaras que están paralelas la una a la otra, tomando una imagen de la escena cada una al mismo tiempo.
+
+Para poder hacer el análisis de las imágenes, necesitamos saber que puntos o píxeles de una imagen se corresponden con los de la otra imagen.
+
+Debido a las variaciones que pueda haber a la hora de tomar las imágenes en cada una de las cámaras, además de la perspectiva de cada una de ellas, esa correlación no es directa, con lo que hace falta un proceso de búsqueda de esos puntos.
+
+Y para facilitar esa búsqueda, se realiza el proceso de rectificación de imágenes.
+
+\subsection{Parámetros intrínsecos}
+Los parámetros intrínsecos de cada cámara corresponden a los valores que definen las características de la cámara que toma la fotografía.
+
+Estos son:
+\begin{enumerate}
+	\item $f$: la longitud focal
+	\item $\gamma$: la relación de aspecto
+	\item $s$: la desviación de los ejes de la cámara
+	\item $x_{0}$ , $y_{0}$ : el punto principal, que es la proyección ortogonal del punto focal de la cámara en la imagen.
+\end{enumerate}
+
+Estos parámetros definen cómo captura la imagen la cámara, y son necesarios para calcular la matriz K o matriz de parámetros intrínsecos, que es necesaria para poder determinar cómo se debe rotar y reescalar la imagen para asegurar que las líneas epipolares queden horizontales.
+
+\[
+K=
+\begin{pmatrix}
+	\gamma f & s f & x_{0} \\
+	0 & f & y_{0} \\
+	0 & 0 & 1
+\end{pmatrix}
+\]
+
+Estos parámetros se obtienen a través de un proceso de calibración de las cámaras usando un patrón conocido, como por ejemplo, un patrón de tablero de ajedrez.
+
+\subsubsection{Líneas epipolares}
+Las líneas epipolares son las líneas que son el resultado de la intersección del plano epipolar, formado por el punto del mundo real y los puntos correspondientes a los puntos focales de las cámaras, con la imagen captada por las cámaras. 
+
+La propiedad fundamental de estas líneas es que el punto del mundo real estará representado en estas dos líneas, lo que nos va a permitir hacer una correspondencia entre puntos de una y otra imagen.
+
+\imagen{lineas_epipolares_02}{Plano epipolar \cite{heyden2001} }
+\imagen{lineas_epipolares}{Líneas epipolares \cite{heyden2001} }
+
+\subsection{Parámetros extrínsecos}
+Los parámetros extrínsecos son los que van a describir la posición y la orientación de las cámaras en el mundo real. En concreto, están formados por una matriz R que va a definir hacia donde mira la cámara, y un vector T que va a indicar en que posición se encuentra la cámara.
+
+Estos valores nos van a permitir alinear las vistas de las cámaras y poder realizar la rectificación de las imágenes.
+
+\subsection{Homografías}
+Las homografías son transformaciones que convierten puntos de un plano en un espacio tridimensional, en esos mismos puntos en otro plano del mismo espacio tridimensional. Esto sirve, por ejemplo, para tener dos vistas distintas dentro de ese espacio.
+
+En el caso de la rectificación de imágenes, nos van a servir para que las líneas epipolares pasen a ser filas horizontales, lo que va a facilitar la búsqueda y relación de puntos entre el par de imágenes captados por las cámaras.
+
+\begin{align}
+	H_1 &= K_{\text{new}}\,R_{\text{rect}}\,R\,K_1^{-1},\\
+	H_2 &= K_{\text{new}}\,R_{\text{rect}}\,R\,K_2^{-1}.
+\end{align}
+
+Donde \(K_{\mathrm{new}}\) es la matriz intrínseca promediada entre las dos cámaras,  
+y \(R_{\mathrm{rect}}\) es una matriz de rotación que deja las líneas epipolares paralelas alineando el vector T con el eje x.
+
+\imagen{lineas_epipolares_03}{La homografía correspondiente al plano $\Pi$ \cite{heyden2001} }
+
+\subsection{Proceso de rectificación}
+El proceso de rectificación de imágenes consiste en alinear las líneas epipolares de cada imagen entre sí, de tal forma que la búsqueda de puntos comunes en ambas imágenes se simplifique a la búsqueda de esos puntos en una sola línea o fila de la imagen, en vez de en toda la imagen a través de todas sus filas. Se pasa de una búsqueda en dos dimensiones a una búsqueda en una sola dimensión, simplificando enormemente el proceso.
+
+Con todos los elementos obtenidos y calculados anteriormente, se pueden obtener un par de imágenes rectificadas a partir de aplicar un warping proyectivo a las imágenes captadas por las cámaras con las homografías correspondientes a cada imagen.
+
+\[
+\begin{pmatrix}
+	x \\[6pt]
+	y \\[3pt]
+	1
+\end{pmatrix}
+=
+H^{-1}
+\begin{pmatrix}
+	x' \\[6pt]
+	y' \\[3pt]
+	1
+\end{pmatrix}
+\;\Longrightarrow\;
+x = \frac{h_{11}\,x' + h_{12}\,y' + h_{13}}{h_{31}\,x' + h_{32}\,y' + h_{33}},
+\quad
+y = \frac{h_{21}\,x' + h_{22}\,y' + h_{23}}{h_{31}\,x' + h_{32}\,y' + h_{33}}.
+\]
+
+
+\section{FoundationStereo}
+FoundationStereo es un modelo desarrollado por nVidia que permite que a partir de un par de imágenes de una escena, representar cada píxel de la imagen en un espacio en tres dimensiones. Es un modelo generalista o "zero-shot", que quiere decir que se ha diseñado para ser capaz de analizar cualquier tipo de par de imágenes sin necesitar ajustes específicos para obtener los resultados esperados.
+
+\imagen{FoundationStereo_esquema}{Esquema del modelo de FoundationStereo \cite{wen2025foundationstereo} }
+
+\subsection{Problemas para crear un modelo generalista}
+En otros campos de la inteligencia artificial, se ha tenido un gran avance en los últimos años a la hora de crear modelos generalistas que proporcionen grandes resultados. Pero en el caso concreto de los modelos de visión estéreo, tienen problemas concretos que han supuesto grandes dificultades a solventar.
+
+Uno de los mayores problemas es que estos modelos se entrenan con un conjunto de datos limitados (como SceneFlow o KITTI), que aunque resultan muy útiles para el entrenamiento de los modelos, no proporcionan la diversidad suficiente de escenas y condiciones que pueden aparecer en un entorno real. Esto provoca que los modelos aprendan a solventar estos casos concretos, pero fallen cuando se enfrentan a condiciones diferentes que no se parezcan a los de estos conjuntos de datos.
+
+Para solventar este problema, se ha recurrido al entrenamiento con conjuntos de datos sintéticos. Esto proporciona la ventaja de un menor coste a la hora de generar estos conjuntos de datos, que además proporcionan un ground-truth perfecto (unas medidas de la respuesta correcta perfecta). El problema de este tipo de conjunto de datos, es que fallan a la hora de reflejar las condiciones reales en las que se toman las imágenes, como pueden ser el ruido de los sensores, las variaciones de las ópticas, la iluminación, condiciones atmosféricas... Con lo que cuando se enfrentan estos modelos a imágenes con las condiciones del mundo real bajan su rendimiento.
+
+Todos estos inconvenientes ha llevado a que se creen modelos que están especializados en algún dominio concreto, pero que no ofrecen los resultados esperados cuando se aplican a escenarios generalistas. Y por este motivo surgió FoundationStereo, como un modelo para solventar este problema de generalización.
+
+\subsection{Cómo funciona FoundationStereo}
+FoundationStereo utiliza varios pasos para obtener la mayor información posible de las imágenes y así realizar una predicción lo más precisa posible.
+
+\subsubsection{Primera fase}
+La primera fase consiste en varios procesamientos paralelos de las imágenes a través de modelos preentrenados diferentes. Por un lado, se procesan las imágenes con Depth Anything y EdgeNeXt-S para obtener información de las imágenes en distintos desplazamientos, que se utilizará posteriormente en el cálculo del volumen de coste. Y por otro, se procesan las imágenes para obtener información global de la escena para un proceso llamado Context Network, que servirá para realizar una mejor correspondencia entre las imágenes en las regiones más complicadas. 
+
+Depth Anything es un modelo que estima la profundidad a partir de una sola imagen. Este proceso se utiliza, no para obtener datos sobre la profundidad, si no para obtener un conocimiento general de la imagen que ayude a la predicción de la profundidad posteriormente. Depth Anything ha sido entrenado con una cantidad inmensa de imágenes del mundo real, de tal forma que ayuda al modelo de Foundation Stereo a obtener datos sobre las regiones más ambigüas. Esto lo hace a través de darle el conocimiento que ha adquirido este modelo sobre regiones difíciles de diferenciar como paredes lisas, objetos transparentes, sombras y luces o estructuras finas.
+
+Paralelamente, se procesan las imágenes con la fase que denominan SideTuning CNN (con EdgeNeXt-S). Con este proceso obtienen, al contrario que pasaba con Depth Anything, conocimiento de los detalles de las imágenes. Esto es necesario porque los resultados que proporciona Depth Anything provienen de procesar una sola imagen individual, con lo que no están alineados con el plano epipolar para poder relacionar las dos imágenes en estéreo. Lo que hace el SideTunnig CNN es tomar la información global de la imagen que proporciona Depth Anything, con los detalles locales que proporciona EdgeNeXt-S, como detalles de la disparidad entre las dos imágenes, y las une para que pueda ser utilizada posteriormente con el par estéreo.
+
+Una vez obtenidas las características de las imágenes a partir de la combinación de DepthAnything y la SideTunnig CNN, se construye lo que se denomina un volumen de coste. Este volumen constituye una representación que se utilizará en el proceso de predicción de disparidad, y que almacena para cada posible desplazamiento entre las dos imágenes, una medida de la similitud entre los píxeles correspondientes. De esta forma, en lugar de comparar píxeles de manera individual, el modelo trabaja con un espacio de hipótesis que recoge todas las correspondencias posibles en una estructura multidimensional.
+
+El volumen de coste en FoundationStereo se construye de forma híbrida combinando dos enfoques distintos. Por un lado, se calcula una correlación por grupos (group-wise correlation), en la que se dividen las características en subconjuntos y se mide su similitud a través del producto escalar. Esto proporciona una estimación de como se correlacionan los píxeles del par de imágenes al aplicar un cierto desplazamiento. Por otro lado, se realiza una concatenación de las características de ambas imágenes tras aplicar ese mismo desplazamiento. Este segundo enfoque permite que la información proveniente de DepthAnything no se pierda, quedando reflejada en el propio volumen de coste.
+
+Esto permite que el volumen de coste no solo contenga información sobre las similitudes entre los píxeles, sino también un conocimiento global derivado de la información proporcionada por Depth Anything. De esta forma se mejora el desempeño en regiones problemáticas, como superficies lisas, reflejos o estructuras finas, en las que los métodos tradicionales obtienen peores resultados.
+
+El Context Network se realiza en paralelo al procesado anterior. En este caso se utiliza una CNN de nVidia que extrae características a distintas escalas. Estas características de contexto se utilizarán posteriormente para inicializar el estado interno de los módulos ConvGRU, encargados de refinar la disparidad. De este modo, el refinamiento no depende únicamente de la similitud entre píxeles, sino que utilizará una representación que añade información sobre el global de la imagen y sus características.
+
+Esto permite solventar algunas de la limitaciones que surgían en los modelos clásicos como en superficies lisas, objetos translúcidos o regiones con iluminación compleja. Este contexto se une al que ya proporciona el procesado que se realiza con DepthAnything, lo que mejora los resultados cuando se presentan escenas del mundo real con distintas características.
+
+\subsubsection{Segunda fase}
+La segunda fase se denomina Attentive Hybrid Cost Filtering (AHCF). Esta fase usa los valores proporcionados por el volumen de coste de la fase anterior para obtener una estimación inicial de la disparidad. Para ello, se combinan dos procesos: por un lado, un filtrado convolucional (Axial-Planar Convolution o APC) que maneja la dimensión de disparidad, que son las hipótesis de las predicciones de la disparidad provenientes del volumen de coste. Y por otro lado, un mecanismo de atención (Disparity Transformer o DT) que permite mejorar la predicción comparando todas las dimensiones entre si buscando información de contexto de la imagen que se encuentra en esas dimensiones.
+
+El primer proceso, Axial-Planar Convolution, está formado por dos pasos. El primer paso se encargar de procesar la altura y la anchura, y el segundo paso se encarga de procesar la disparidad. Con el procesamiento de la altura y la anchura lo que se consigue es que se tenga en cuenta la información de los píxeles vecinos de la imagen. Esto sirve para mejorar la predicción cuando surgen defectos o características en la imagen que podrían afectar al resultado, pero teniendo en cuenta la información de la región y la zona se evitan en gran medida estos problemas. Y con el procesamiento de las disparidad, se tiene en cuenta al mismo tiempo todas las predicciones para cada píxel, de esta forma se puede tener en cuenta la probabilidad de la disparidad calculada de cada dimensión y poder analizar la evolución en cada una de ellas para poder obtener un resultado más preciso.
+
+El segundo proceso, correspondiente a Disparity Transformer, compara todas las predicciones de disparidad de todas las dimensiones entre sí, para poder calcular cuál de todas ellas son las más probables y coherentes teniendo en cuenta el contexto global. De este modo se tiene en cuenta la información que aporta cada dimensión para poder hacer una elección lo más informada posible.
+
+Al combinarse estos dos procesos, se proporciona una estimación inicial de la disparidad mucho más precisa y coherente con la imagen para terminar su predicción en la última fase del proceso. 
+
+\subsubsection{Tercera fase}
+Después de que el volumen de coste ha sido filtrado por el proceso AHCF, se calcula una primera estimación de la disparidad utilizando un proceso llamado Soft-Ergmin. Lo que hace este método es convertir los valores de las probabilidades de la disparidad de cada píxel, de modo que los valores más coherentes tengan más peso. A partir de ahí, se obtiene un valor único que representa la disparidad inicial de cada píxel. Esta primera predicción no es aún la definitiva, pero ya es bastante correcta debido a todo el procesado anterior.
+
+Con esa predicción inicial, se pasa al siguiente proceso que es el refinamiento iterativo, que se realiza mediante unos bloques denominados ConvGRU. Estos bloques funcionan  de forma iterativa en un bucle que va corregiendo la predicción. En cada iteración, comparan la disparidad estimada con el volumen de coste original y con las características de contexto de la imagen. Si la predicción no es correcta con todo ello, el modelo la ajusta un poco y se repite este proceso mejorando el resultado anterior.
+
+Los bloques ConvGRU realizan este refinamiento de la predicción de forma progresiva, comenzando en una versión más reducida de la imagen y pasando después a resoluciones mayores. Esto permite que primero se resuelva la estructura general de la escena y, en los últimos pasos, se añadan los detalles finos. Finalmente, la disparidad se reescala hasta la resolución completa de la imagen.
+
+\subsection{De disparidad a profundidad}
+El resultado final es un mapa de disparidades, es decir, para cada píxel de la imagen izquierda se estima cuántos píxeles se desplaza su correspondencia en la imagen derecha. Sin embargo, lo que se quiere obtener es un mapa de profundidad que indique la distancia desde la cámara hasta cada punto de la imagen.
+
+A partir de la disparidad se puede calcular la profundidad usando la geometría. Si se conocen los parámetros intrínsecos y extrínsecos, entonces la profundidad se puede calcular mediante la siguiente fórmula:
+
+\[
+Z = \frac{f \cdot B}{d}
+\]
+
+En esta fórmula, la disparidad $d$ se mide en píxeles, mientras que $f$ y $B$ están en unidades físicas (por ejemplo, milímetros). A mayor disparidad, menor profundidad. Esto es debido a que los objetos cercanos producen desplazamientos grandes entre la imagen izquierda y la derecha, mientras que los objetos lejanos apenas presentan diferencia de posición.
+
+Cuando se utiliza el modelo de FoundationStereo sin los parámetros intrínsecos y extrínsecos, los resultados de la profundidad al no poder aplicarse esta fórmula, son resultados relativos. Es decir, que su escala de distancias es correcta entre sí, pero los valores no se corresponden con los valores de distancia del mundo real.
+
+
+\subsection{Resultados}
+Los resultados obtenidos por FoundationStereo, como se pueden ver en la visualización con mapa de calor, son bastante buenos a la hora de detectar la profundidad de la imagen y su estructura general. Un problema que nos vamos a encontrar, es que como se puede observar en la secuencia de imágenes, es que aunque es capaz de detectar que en el espacio donde se encuentra la grieta y proporcionar una diferencia de profundidad, la diferencia con los valores de profundidad del entorno es muy pequeño, lo que va a ser problemático a la hora de detectarlo de forma automatizada.
+
+\imagen{FoundationStereo_0001_vis}{Visualización de resultados de FoundationStereo al inicio del experimento}
+\imagen{FoundationStereo_0401_vis}{Visualización de resultados de FoundationStereo en un punto intermedio del experimento}
+\imagen{FoundationStereo_0685_vis}{Visualización de resultados de FoundationStereo al final del experimento}
+
+\section{DEFOM-Stereo}
+DEFOM-Stereo es un modelo desarrollado por investigadores de Insta360 Research y la Chinese University of Hong Kong que combina las ventajas de la estimación monocular de profundidad con el emparejamiento estéreo. Como en el caso de FoundationStereo, su objetivo es mejorar la obtención de mapas de disparidad en escenas reales, donde problemas como las zonas sin textura, las oclusiones o la iluminación complicada suelen generar que no se obtengan buenos resultados.
+
+Como pasaba con FoundationStereo, va a hacer uso de Depth Anything2 para obtener información del contexto de las imágenes e inicializar el mapa de disparidad. Además, introduce un módulo de actualización de escala que corrige las inconsistencias que aparecen al pasar de profundidad relativa a disparidad métrica, refinando de manera iterativa los resultados hasta recuperar una geometría más precisa.
+
+DEFOM-Stereo busca lograr un modelo generalista o zero-shot, es decir, que pueda aplicarse a escenas nuevas sin necesidad de ajuste específico.
+
+\imagen{DEFOMStereo_esquema}{Esquema del modelo de DEFOM Stereo \cite{jiang2025defomstereo} }
+
+\subsection{Cómo funciona DEFOM-Stereo}
+\subsubsection{Primera fase}
+El primer paso de DEFOM-Stereo comienza con la integración de un Depth Foundation Model. Igual que FoundationStereo, se utiliza Depth Anything, un modelo entrenado para predecir mapas de profundidad partir de imágenes individuales. Y de igual manera, se usa por su capacidad de captar información global de la escena, reconociendo relaciones espaciales aunque falten texturas o haya oclusiones. E igualmente, en DEFOM-Stereo se aprovecha esa capacidad global de representación, no para quedarse únicamente con el mapa de profundidad, sino para enriquecer la forma en la que se extraen las características que después se usarán en el emparejamiento estéreo.
+
+Para conseguirlo, se construye lo que llaman un Combined Feature Encoder. En esta parte, combinan el uso de la red convolucional de RAFT-Stereo, que aporta detalles locales de las imágenes, y las une con las características globales que aporta Depth Anything. Además, en el caso de DEFOM Stereo, añaden un nuevo modelo DPT entrenable a Depth Anything, que se encarga de transformar los resultados de las representaciones globales de Depth Anything. Este paso es necesario porque los resultados del primer paso de Depth Anything son representaciones abstractas que deben ser transformadas para poder ser usadas. Y en vez de obtener unicamente una representación de la profundidad como hace Depth Anything, se añade esta nueva DPT que da como resultado las características globales de las imágenes. Aquí el resultado va a ser un volumen de correlación entre las dos imágenes del par estéreo basados en las características globales y locales de ambas imágenes.
+
+Junto a esto, DEFOM-Stereo incorpora también un Combined Context Encoder, que en este caso solo se aplica a la imagen izquierda. Este paso se encarga de aportar el contexto necesario para guiar el proceso recurrente que irá refinando la disparidad. Al igual que en el Combined Feature Encoder, aquí también se combinan las dos fuentes. Por un lado la red convolucional de RAFT-Stereo, que aporta información del contexto local de las imágenes. Y por otro lado, los dos pasos que hemos visto anteriormente usando Depth Anything y el modelo DPT entrenable para obtener los detalles de contexto globales. De esta forma va a generar unos mapas de contexto que servirán para inicializar el estado de los módulos ConvGru y posteriormente para ayudar en el refinamiento del mapa de disparidad en las sucesivas iteraciones.
+
+\subsubsection{Segunda fase}
+En la segunda fase, llamada Scale Update, el objetivo principal es corregir la disparidad inicializada con el mapa de profundidad de Depth Anything. Este mapa es una buena aproximación, pero tiene el problema de que no está en la escala correcta y además puede presentar inconsistencias dentro de la propia imagen.
+
+Para esta fase se van a utilizar las tres piezas de información de la fase anterior. El mapa de disparidad de Depth Anything, el volumen de correlación que proviene del Combined Feature Encoder y que contiene la información de como se pueden relacionarse entre ellas,y los mapas de contexto que se han generado en el Combined Context Encoder.
+
+Con todos estos elementos, la fase de Scale Update utiliza un módulo ConvGRU diseñado para predecir un mapa de disparidad. En cada iteración, este ConvGRU actualiza el valor de la disparidad. El objetivo de este ConvGru es actualizar en cada iteración la disparidad teniendo en cuenta los detalles de contexto globales y locales, mientras que el ajuste de los detalles se deja para una fase posterior. 
+
+Para ello, usa el volumen de correlación obtenido de la fase anterior con el Combined Feature Encoder. Con ello construye un conjunto de valores de correlación que le indican al ConvGRU si una cierta escala hace que los píxeles coincidan bien entre izquierda y derecha. Esa comparación permite que el modelo aprenda a ajustar la escala correcta de manera iterativa, incluso en escenas con disparidades grandes o regiones difíciles.
+
+Los mapas de contexto que se obtuvieron con el Combined Context Encoder, en esta fase se usan para inicializar el estado del ConvGRU y dar una primera estructura de la escena. Y posteriormente en cada iteración, se usan para obtener información del contexto de la imagen y poder hacer predicciones más precisas que si sólo se basara en las correlaciones de las dos imágenes del par estéreo.
+
+\subsubsection{Tercera fase}
+La última fase de DEFOM Stereo se denomina Delta Update. Su objetivo es refinar los detalles locales de la disparidad corrigiendo bordes, contornos y pequeñas inconsistencias. Es decir, mientras la fase de Scale Update se centraba en la imagen global, la fase de Delta Update trata de definir los detalles de la misma, como los bordes de los objetos, las transiciones entre superficies o pequeñas variaciones en zonas que todavía no han quedado bien definidas.
+
+La entrada principal de esta fase es la disparidad corregida en escala que generó la fase de Scale Update. A esto se suma el estado interno del módulo ConvGRU que ya se ha ido refinando en las iteraciones anteriores gracias al volumen de correlación y a los mapas de contexto de la primera fase.
+
+Lo que hace el ConvGRU en esta fase es refinar de forma muy fina la disparidad, corrigiendo los errores pequeños que aún queden de las fases anteriores. Para ello, va a comparar la región alrededor del píxel actual para mejorar el ajuste de la disparidad, moviendo un píxel ligeramente hacia un lado o hacia otro para alinear mejor los pares estéreo en regiones con bordes o texturas finas.
+
+Los mapas de contexto generados en la primera fase siguen teniendose en cuenta en esta fase. En cada iteración del ConvGRU, se vuelven a utilizar como entradas adicionales, proporcionando una guía estructural que ayuda a que los ajustes locales respeten la coherencia general de la escena.
+
+La salida de esta fase es el mapa de disparidad correspondiente a las imágenes del par estéreo con el que poder calcular la profundidad de cada píxel.
+
+\subsection{Resultados}
+Los resultados que obtenemos con DEFOM Stereo son muy similares a los que obtuvimos con Foundation Stereo y presentan los mismos problemas, algo que será recurrente entre los modelos. Es capaz de detectar correctamente la profundidad general de la imagen y de detectar la grieta que se produce, pero con un cambio en la profundidad con respecto a su entorno que no va a facilitar el estudio automatizado del mismo.
+
+\imagen{DEFOMStereo_0001_vis}{Visualización de resultados de DEFOM Stereo al inicio del experimento}
+\imagen{DEFOMStereo_0401_vis}{Visualización de resultados de DEFOM Stereo en un punto intermedio del experimento}
+\imagen{DEFOMStereo_0685_vis}{Visualización de resultados de DEFOM Stereo al final del experimento}
+
+\section{VGGT}
+VGGT es un modelo desarrollado por el Visual Geometry Group de la Universidad de Oxford junto con Meta AI. Se trata de una red neuronal basada en transformadores capaz de, a partir de una o varias de imágenes de una escena, estimar directamente todos sus atributos 3D principales, como los parámetros de cámara, mapas de profundidad, mapas de puntos y trayectorias 3D de los píxeles.
+
+Lo que diferencia a VGGT de otros enfoques es que no depende de métodos clásicos de geometría visual ni de procesos iterativos de optimización. En su lugar, con una sola pasada de red (feed-forward), es capaz de reconstruir la escena obteniendo unos resultados que no necesitan post-procesamiento. Igual que los modelos anteriores, es un modelo generalista que no está especializado en resolver un sólo caso concreto.
+
+\imagen{VGGT_esquema}{Esquema del modelo de VGGT Stereo \cite{wang2025vggt} }
+
+\subsection{Cómo funciona VGGT}
+\subsubsection{Primera fase}
+VGGT comienza su proceso dividiendo cada imagen en pequeños fragmentos, que formarán los tokens de características mediante el modelo DINOv2. Estos tokens funcionan como representaciones numéricas de cada parte de la imagen, capturando tanto texturas como patrones geométricos. Para cada imagen, también se añaden unos tokens de camera, que no provienen directamente de los píxeles, sino que son vectores aprendidos durante el entrenamiento. Su función es aportar la información de la cámara asociada a esa vista. Estos tokens por tanto corresponderían a una representación de la información de los parámetros intrínsecos y extrínsecos que describen cómo está posicionada y las características de la cámara.
+
+La combinación de los tokens de las imágenes y los tokens de la camera permite que en las siguientes fases un transformer pueda relacionar lo que se ve en cada imagen con la geometría de la cámara que la capturó. Esto hace posible que VGGT no solo identifique patrones de profundidad o correspondencias entre imágenes, sino que además lo haga usando un sistema de referencia 3D que se mantiene durante todo el proceso. Con esto consigue que la predicción de la profundidad de la escena siempre tenga en cuenta la cámara desde la cual se tomaron las imágenes, manteniendo coherencia en todo el conjunto de pares.
+
+\subsubsection{Segunda fase}
+La segunda fase de VGGT comienza cuando ya se tienen los tokens de imagen y los tokens de cámara de todas las imágenes. Con esto se combina la información de todas ellas para que cada token no sólo represente la información de una sola imagen, si no que también añade el contexto del resto de las imágenes.
+
+Para ello utiliza dos fases. La primera se denomina Global Attention y es en este fase donde se van a utilizar todos los tokens de todas las imágenes. De esta forma se extrae información del contexto del resto de imágenes para capturar la información relativa a profundidad de una manera que sea coherente entre todas ellas. Además, se usan lo token de cámara para relacionar las distintas imágenes con sus respectivos puntos de vista.
+
+La segunda fase se denomina Frame Attention. En esta fase sólo se utiliza los tokens de cada imagen individual. Esta fase se encarga de aportar el contexto de los detalles concretos de cada imagen, y además permite que estos detalles de cada una de ellas no se pierdan cuando se combinan todas ellas en la fase anterior donde sólo se tienen en cuenta el contexto global.
+
+Este mecanismo se repite en bucle durante un número de iteraciones. De esta forma cada token se va refinando de tal forma que contenga tanto información de la región de la imagen de la que proviene, como información del contexto general del conjunto de imágenes que se están procesando. Este nuevo conjunto de tokens son los que se utilizarán en la próxima fase del proceso para generar las predicciones de profundidad y generar los mapas de puntos 3D.
+
+\subsubsection{Tercera fase}
+La tercera fase de VGGT recibe los tokens refinados en la fase anterior y se va a encargar de producir los resultados finales de predicción de la profundidad y los puntos 3D.
+
+El conjunto de tokens que se reciben se dividen en dos procesos. Por un lado, se seleccionan únicamente los tokens visuales y se procesarán en un DPT (Dense Prediction Transformer). Este transformer va a utilizar estos token visuales para generar los mapas de predicción de profundidad de cada píxel de las imágenes y los mapas de los puntos 3D. 
+
+Por otro lado, se van a seleccionar los tokens de la cámara y se van a procesar en un módulo denominado Camera Head. Este módulo se encarga de predecir los parámetros intrínsecos y extrínsecos de cada cámara. Es decir, este módulo se encarga de transformar los tokens de cámara generados desde la primera fase, y que eran una representación de las características de la cámara que tomó las imágenes, y con ellos hace una predicción de los valores intrínsecos y extrínsecos de las cámaras.
+
+\subsection{Resultados}
+Como pasaba en los anteriores modelos, VGGT es capaz de crear una buena representación de la escena en general y predecir correctamente la profundidad de sus elementos. Pero tiene el mismo problema en la zona de la grieta, que aunque la detecta y predice una profundidad diferente a los píxeles de su entorno, la diferencia es muy pequeña. Esto representa un problema a la hora de detectar esa zona concreta en un proceso automatizado por la dificultad de diferenciarla de otras zonas de la imagen donde el proceso de predicción también da pequeñas diferencias.
+
+\imagen{VGGT_0001_vis}{Visualización de resultados de VGGT al inicio del experimento}
+\imagen{VGGT_0401_vis}{Visualización de resultados de VGGT en un punto intermedio del experimento}
+\imagen{VGGT_0685_vis}{Visualización de resultados de VGGT al final del experimento}
+
+\section{Detectores Esquinas}
+Una vez hemos podido obtener con alguno de estos modelos una predicción de la profundidad de cada píxel, necesitamos un proceso automático para poder hacer el seguimiento de los puntos. La primera aproximación ha sido detectar las esquinas del bloque de hormigón, y hacer un seguimiento de esos puntos usando los mapas de puntos 3D de los modelos.
+
+Para ello se ha probado con los siguientes métodos.
+
+\subsection{Harris}
+
+El detector de esquinas de Harris \cite{harris1988combined} se basa en analizar cómo varía la intensidad en una pequeña zona de la imagen cuando se desplaza en distintas direcciones. La idea es que en una zona plana los cambios son mínimos, en un borde sólo se producen de forma apreciable en una dirección, mientras que en una esquina las variaciones se pueden detectar en todas ellas. Para describir este comportamiento, Harris introduce el llamado tensor de estructura, que incluye toda la información de los gradientes de la imagen y a través de sus valores propios, determina si una región corresponde a una zona plana, un borde o una esquina. 
+
+En lugar de calcular directamente dichos valores propios, lo que es muy costoso computacionalmente, Harris y Stephens propusieron medirlo basándose en los invariantes del tensor de estructura, que son en concreto su traza y su determinante. De esta forma, definen una función de respuesta
+
+\[
+R = \det(M) - k \, \mathrm{Tr}(M)^2,
+\]
+
+donde \(k\) es un parámetro que ajusta la sensibilidad del detector. Este criterio permite distinguir entre esquinas, bordes y zonas planas de manera eficiente sin que le afecten las rotaciones o el contraste de la imagen.
+
+El uso del detector de Harris consiste en que primero se calculan los gradientes de la imagen y se combinan con un filtrado gaussiano para reducir el ruido. Después se evalúa la respuesta \(R\) en cada píxel. Por último, se seleccionan como esquinas aquellos puntos donde esta respuesta es especialmente alta, asegurando además que sean máximos locales en su entorno. De esta manera, el algoritmo identifica de forma automática los puntos más representativos de la imagen, que suelen coincidir con esquinas.
+
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_harris}{Visualización de resultados del detector de Harris}
+
+\subsection{Shi–Tomasi}
+
+El detector de esquinas de Shi--Tomasi \cite{shi1994good} surge como una mejora directa del método de Harris. Al igual que en este, la idea principal es utilizar el tensor de estructura, que resume la información de los gradientes de la imagen dentro de una pequeña ventana. Los valores propios de este tensor indican cómo varía la intensidad de la imagen en distintas direcciones. Si ambos son pequeños la región es plana. Si uno es grande y el otro pequeño corresponde a un borde. Y si ambos son grandes se trata de una esquina.
+
+La diferencia respecto al detector de Harris está en la forma de decidir cuándo un punto es una buena característica. Mientras que Harris propone una función de respuesta \(R\) basada en determinante y traza, Shi y Tomasi plantean evaluar únicamente el menor de los dos valores propios.
+
+\[
+R = \min(\lambda_1, \lambda_2).
+\]
+
+De este modo, un punto se considera una esquina válida siempre que este valor mínimo supere un cierto umbral. La ventaja de este criterio es que se descartan de manera natural los bordes, ya que en ellos uno de los valores propios será pequeño aunque el otro sea grande.
+
+En el caso del detector de Shi-Tomasi, primero se calculan los gradientes de la imagen y se construye el tensor de estructura suavizado con un filtro gaussiano. A continuación se obtienen sus valores propios en cada píxel y se compara el menor de ellos con el umbral definido. Y por último, se seleccionan como esquinas aquellos puntos que superen el umbral y que sean máximos locales en su entorno. De esta forma el detector de Shi-Tomasi logra identificar las esquinas de la imagen.
+
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_shitomasi}{Visualización de resultados del detector de Shi-Tomasi}
+
+\subsection{FAST}
+
+El detector de esquinas FAST (Features from Accelerated Segment Test) \cite{rosten2006fast} fue diseñado para ser muy rápido y poder usarse en aplicaciones en tiempo real. Mientras que otros detectores como Harris o Shi-Tomasi ofrecen buenos resultados, tienen un coste computacional alto que no permitía su uso en este tipo de aplicaciones.
+
+El detector FAST consiste en analizar un píxel candidato \(p\) y comparar su intensidad con la de un conjunto de 16 píxeles dispuestos en círculo alrededor de él siguiendo el patrón de Bresenham. El criterio de esquina se basa en comprobar si existe un conjunto de \(n\) píxeles consecutivos en ese círculo que sean todos más brillantes que \(p\) o todos más oscuros, basándose para ello en un umbral \(t\). Si se cumple esta condición, el píxel central \(p\) se clasifica como esquina.
+
+Para acelerar aún más el proceso, como primer paso se usa un \emph{test rápido}, que consiste en que en lugar de comprobar los 16 píxeles desde el inicio, se verifican primero únicamente los de las posiciones arriba, abajo, izquierda y derecha. Si entre esos píxeles no se cumplen las condiciones necesarias, el píxel se descarta reduciendo las comparaciones y el coste computacional. Si se cumplen las condiciones en esos píxeles se comprueban el resto del conjuntos de píxeles alrededor del píxel inicial.
+
+Para mejorar aún más el algoritmo, se mejoró empleando técnicas de aprendizaje automático que permiten optimizar el orden y la selección de las comparaciones a través de un árbol de decisión que clasifica cada píxel de manera más eficiente que el algoritmo escrito manualmente.
+
+La mayor desventaja de FAST respecto a los detectores como el de Harris o Shi-Tomasi, es que no tiene en cuenta la escala o rotación, por lo que puede obtener peores resultados cuando la imagen contiene ruido o estructuras geométricas grandes.
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_fast}{Visualización de resultados del detector de FAST}
+
+\subsection{ORB}
+
+El detector ORB (Oriented FAST and Rotated BRIEF) \cite{rublee2011orb} es una alternativa más eficiente a los métodos como SIFT y SURF. Su idea es aprovechar la rapidez de FAST para detectar esquinas, pero mejorar su desempeño en imágenes rotadas y usar descriptores de las zonas para poder relacionarlas entre imágenes.
+
+El proceso comienza con el detector FAST, que localiza los puntos candidatos. FAST no proporciona información sobre la orientación de la esquina, lo que limita su uso cuando la imagen está rotada. Para solucionarlo, ORB usa un cálculo del \emph{centroide de intensidad} en la zona de los puntos vecinos del píxel. Este centroide permite definir un ángulo, de manera que por cada punto detectado se tiene en cuenta no sólo su posición, sino también su orientación.
+
+Una vez localizados los puntos clave, ORB usa un descriptor basado en BRIEF. Este descriptor compara intensidades de pares de píxeles dentro de una zona. El problema de BRIEF es que no obtiene buenos resultados con las rotaciones, pero ORB lo soluciona teniendo en cuenta la orientación estimada en el paso anterior. Además, aplica un procedimiento de selección para quedarse con las comparaciones más relevantes. 
+
+Con estos dos procesos, ORB combina la rapidez de FAST con la eficiencia de un BRIEF mejorado, alcanzando un rendimiento muy alto en tiempo real y siendo mucho más ligero que SIFT o SURF.
+
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_orb}{Visualización de resultados del detector de ORB}
+
+\subsection{SuperPoint}
+
+El detector de esquinas \textbf{SuperPoint} \cite{detone2018superpoint} surge para solventar las limitaciones de los métodos clásicos que basan sus predicciones en la intensidad de los píxeles. SuperPoint usa aprendizaje profundo para aprender qué puntos de una imagen son potencialmente interesantes y cómo describirlos.
+
+Los primeros modelos de este tipo se entrenaron para aprender a detectar las formas básicas como triángulos, rectángulos, etc. Pero tenían el problema de que cuando se aplicaban a escenas del mundo real con formas mucho más complejas, los resultados no eran suficientemente buenos.  
+
+Para solventar este problema, se usó un procedimiento denominado \textbf{Homographic Adaptation}. Este procedimiento consiste en tomar imágenes reales sin etiquetar, deformarlas aplicando diferentes homografías y usar al propio detector para ver qué puntos se mantienen a pesar de esas transformaciones. Esos puntos repetidos se convierten en etiquetas automáticas, que permiten seguir entrenando al modelo sin necesidad de intervención humana.  
+
+El modelo resultante de este entrenamiento es SuperPoint. Su arquitectura es una red convolucional profunda que se divide en dos ramas. Una de ellas produce un mapa de probabilidad de puntos de interés, gracias a una técnica llamada \emph{píxel shuffle} que le da precisión sub-píxel. La otra rama genera descriptores numéricos asociados a cada punto, de forma que no sólo se localizan esquinas, sino que también se obtienen representaciones para poder compararlas entre imágenes.  
+
+De esta forma, se obtienen tanto las posiciones como los descriptores de los puntos clave. Y con ello se consigue que SuperPoint obtenga buenos resultados en escenarios con cambios de iluminación o con diferentes puntos de vista.
+
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_SuperPoint}{Visualización de resultados del detector de SuperPoint}
+
+\subsection{D2-Net}
+
+El detector \textbf{D2-Net} \cite{dusmanu2019d2net} cambia la forma del proceso de detección y descripción de puntos. Mientras que los métodos anteriores siguen una estrategia de detectar primero los puntos y de describir el contexto después, D2-Net realiza el proceso de forma inversa. Primero genera una representación de la imagen y a partir de ella extraer tanto los descriptores como las posiciones de los puntos clave.
+
+Para ello, utiliza una red convolucional basada en VGG16 de la que se obtienen mapas de características que actúan de dos formas distintas. Por un lado, cada posición de estos mapas se interpreta como un descriptor local que representa la información de la imagen. Por otro lado, estos mapas permiten localizar los puntos de interés seleccionando como esquinas aquellos píxeles que destacan como máximos locales. De esta manera, la detección ya no depende de estructuras locales simples como esquinas o bordes, sino de información de contexto de la imagen que ha aprendido la red. Esto permite obtener mejores resultados con imágenes de distinta iluminación o con diversas condiciones distintas del momento en que se toman las imágenes.
+
+Esto permite que D2-Net obtenga menos puntos clave que los otros métodos, pero más precisos en condiciones difíciles, como el paso de día a noche o la localización en interiores con estructuras repetitivas.
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_D2-Net}{Visualización de resultados del detector de D2-Net}
+
+\subsection{R2D2}
+
+\textbf{R2D2} (Repeatable and Reliable Detector and Descriptor) \cite{revaud2019r2d2} es un detector y descriptor que surge para solventar un problema de los métodos anteriores, y es que se centran únicamente en que los puntos detectados sean repetibles, es decir, que aparezcan de forma consistente bajo distintos cambios de vista o de iluminación. El problema es que ser repetible no siempre resulta suficientemente distintivo. Por ejemplo, en un tablero de ajedrez, todas las esquinas de las casillas son repetibles, pero no se pueden distinguir unas de otras.  
+
+R2D2 busca puntos de interés que sean repetibles y fiables. Repetibles en el sentido de que se puedan detectar bajo diferentes transformaciones. Y fiables en el sentido de que sus descriptores sean suficientemente distintivos como para emparejarlos. Para lograrlo, el método utiliza una red convolucional que analiza la imagen completa y produce tres resultados. En primer lugar, un mapa de repetibilidad que señala qué regiones son buenas candidatas a contener puntos consistentes. En segundo lugar, un mapa de fiabilidad que estima si los descriptores que allí se generen serán realmente distintivos. Y finalmente, un conjunto de descriptores locales que representan la apariencia de cada píxel de la imagen.  
+
+R2D2 combina esas tres salidas. Se seleccionan únicamente aquellos píxeles que son máximos locales en el mapa de repetibilidad y que al mismo tiempo tienen una alta fiabilidad. De este modo, se eliminan de manera automática las zonas que aunque se repitan con frecuencia, no sirven para distinguirse, como pueden ser patrones regulares de ventanas o texturas de hojas.    
+
+Igual que pasaba con D2-Net, R2D2 consigue un conjunto de puntos clave más reducido pero que ofrecen una mayor precisión. Los puntos seleccionados no solo son fáciles de detectar de nuevo en otras imágenes, sino que también se pueden emparejar con los de otras imágenes.
+
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_R2D2}{Visualización de resultados del detector de R2D2}
+
+\subsection{Conclusión}
+Como vemos con los resultados, probablemente debido al patrón speckle del bloque de hormigón, no conseguimos unos resultados que permitan detectar los puntos del bloque que nos lleven a poder analizar el progreso de la grieta a lo largo del tiempo y poder realizar su estudio.
+
+Los detectores encuentran puntos de interés en cualquier parte debido a este patrón y las sombras que proyecta. Esto hace que no se haya podido usar estos métodos como punto de partida para seleccionar unos puntos de partida y a partir de ellos con los mapas 3D de los modelos de visión estéreo realizar una estimación automática de tamaño de las grietas que se generan en el bloque.
+
+\section{Detectores de líneas}
+Como los detectores de esquinas no produjeron los resultados esperados, se decidió usar un detector de líneas, para ver si siendo capaces de detectar la formar del bloque de hormigón a través de las líneas de sus bordes, podíamos ser capaces de encontrar las esquinas a través de la intersección de las mismas y de esta forma encontrar las esquinas. Y partir de ellas ser capaces de encontrar los puntos de interés del bloque y realizar el seguimiento de los puntos y realizar el estudio del progreso del estado del bloque y las grietas.
+
+\subsection{Probabilistic Hough}
+El método que se uso fue el de Probabilistic Hough. La transformada de Hough tradicional detecta líneas en una imagen a partir de los píxeles que forman sus bordes. El procedimiento comienza obteniendo un mapa de bordes, normalmente con un detector como Canny. A continuación, cada píxel de ese mapa se transforma al espacio de parámetros de las rectas, es decir, a una representación donde cada posible línea queda definida por una orientación y una posición. En este espacio, un mismo píxel no corresponde a una sola recta, sino a un conjunto de posibles rectas que podrían pasar por él. Al realizar esta transformación para todos los píxeles de borde, los que pertenecen a la misma línea en la imagen tienen los mismos parámetros, lo que permite detectar la recta que forman. De esta manera, con los puntos con los mismos valores en el espacio de parámetros se pueden reconstruir las líneas de la imagen, incluso si aparecen fragmentadas. La mayor desventaja de este método es que es necesario procesar todos los píxeles de borde, lo que es computacionalmente costoso \cite{duda1972hough}.
+
+Una de las primeras variantes fue propuesta por Stephens \cite{stephens1991pht}. En lugar de trabajar únicamente contando cuántos puntos de borde forman cada recta, plantea interpretar el proceso en términos de probabilidad. Lo que realiza es que cada línea candidata en la imagen recibe un valor que indica qué tan probable es que exista en función de cómo encajan en la línea los puntos de borde detectados. En vez de basarse solo en acumulaciones según las coincidencias de los puntos, el método busca las rectas que resultan más probables según los datos disponibles. Esto permite que funcione mejor cuando las imágenes contienen ruido u otros defectos, pero no mejora el coste computacional.
+
+Una alternativa más práctica fue introducida por Kiryati, Eldar y Bruckstein, quienes plantearon el denominado Hough probabilístico que selecciona para realizar el espacio de parámetros únicamente una parte de los píxeles de borde \cite{kiryati1991pht}. En lugar de transformar todos los puntos detectados, se selecciona aleatoriamente una fracción representativa y únicamente ellos se proyectan al espacio de parámetros. De este modo, se reduce el número de operaciones necesarias manteniendo una detección fiable siempre que la muestra aleatoria sea lo suficientemente grande para contener información sobre las líneas de la imagen.  
+
+Otra versión de este método es el trabajo de Matas, Galambos y Kittler, que con lo que denominan Hough probabilístico progresivo \cite{matas2000ppht}. Lo que realizan con esta versión es no esperar a procesar todos los puntos de borde antes de decidir si una línea existe, sino ir comprobando de manera progresiva mientras se van analizando los datos. Cuando una recta candidata reúne suficientes puntos que confirman su presencia, se acepta como línea detectada y se eliminan esos puntos para no volver a utilizarlos. Esto permite detener el cálculo antes de recorrer toda la imagen y evita repetir el estudio de algunos puntos. Al contrario que en los otros métodos, en lugar de indicar la recta de la imagen como una recta infinita, este método devuelve los segmentos de línea encontrados. De esta forma se consigue reducir el coste computacional y obtener unos resultados de detección de líneas con buenos resultados.
+
+\subsubsection{Resultados}
+
+\imagen{DETECTORES_LINEAS_400_input_vggt_lineas}{Visualización de resultados del detector Probabilistic Hough}
+
+\subsection{Conclusión}
+De la misma forma que ocurría con los detectores de líneas, los resultados de la detección de líneas se ven perturbados por el patrón speckle del bloque de hormigón, por lo que igual que pasaba anteriormente no nos permite usar este método para poder seleccionar puntos que nos permitan hacer un estudio de los puntos del bloque que nos permitan analizar la progresión de la grieta a lo largo del tiempo.
+
+\section{Detección de la profundidad}
+Como alternativa, hemos usado los mapas de profundidad que nos proporcionan los métodos de visión estéreo y analizar los cambios de profundidad en la imagen directamente, y de esta forma ver si podemos a través de estos cambios, analizar dónde y cómo se produce la grieta en el bloque de hormigón.
+
+\subsection{Sobel}
+
+Para detectar la zona donde se produce la grieta en el bloque de hormigón, hemos usado la matriz de profundidad generada por el modelo de vggt. Hemos usado únicamente la matriz correspondiente a cada imagen sin tener en cuenta las anteriores, porque el modelo detecta la grieta con unos valores de profundidad mínimos, y las variaciones que se producen al generar las predicciones en cada par son mayores que estos valores. 
+
+Esto se produce porque cada medición de cada par es independiente, y los valores obtenidos no son siempre los mismos. Por lo que al compararlos unos con otros el resultado es que la profundidad de la
+grieta suele ser el valor de diferencia mínimo haciéndola indetectable.
+
+Al usar sólo la matriz de cada imagen, podemos detectar únicamente las diferencias de profundidad, y aunque sean muy pequeñas, podemos ser capaces de detectarlas al menos a partir de un umbral.
+
+Para ello hemos utilizado un método de gradiente, Sobel \cite{sobel1973}, que mide la tasa de cambio de la profundidad tanto en dirección horizontal como en vertical. 
+
+El operador de \textbf{Sobel} \cite{sobel1973} es un método basado en gradientes que se emplea para resaltar los bordes de una imagen. La idea principal es detectar las zonas donde se producen cambios bruscos de intensidad, ya que estos corresponden a los contornos de los objetos o, en nuestro caso, a discontinuidades en el mapa de profundidad que indican la presencia de una grieta.
+
+El procedimiento se basa en la convolución de la imagen con dos filtros \(3\times 3\), uno orientado en dirección horizontal y otro en dirección vertical. Cada filtro estima la derivada parcial de la intensidad en una dirección. De esta manera, se obtienen dos mapas: 
+\[
+G_x = I * K_x, \quad G_y = I * K_y,
+\]
+donde \(K_x\) y \(K_y\) son los núcleos de Sobel, diseñados para combinar la detección de bordes con un ligero suavizado que reduce la sensibilidad al ruido.
+
+A partir de estas derivadas se calcula la magnitud del gradiente:
+\[
+G = \sqrt{G_x^2 + G_y^2},
+\]
+que indica en cada píxel la intensidad del cambio. Valores grandes de \(G\) corresponden a variaciones fuertes en la imagen, es decir, a bordes bien definidos. En el caso de los mapas de profundidad, esto permite localizar de forma precisa las zonas donde la superficie presenta una discontinuidad, lo que se corresponde con los bordes de la grieta.
+
+Una vez aplicado Sobel, nos quedamos con los puntos que tienen una diferencia de profundidad con su entorno mayor a un umbral, y con estos puntos creamos una máscara que representa las zonas donde se ha podido generar la grieta. Es decir, si en el bloque que es mayormente plano hay una zona donde se ha detectado una hendidura, se marcará esa zona en la máscara como una zona donde se ha producido una grieta.
+
+\imagen{SOBEL_0685_crack_mask}{Máscara obtenida usando el gradiente de Sobel. Los puntos blancos son zonas donde se habría detectado zonas de grieta, y los negros el resto de puntos.}
+
+\subsection{Limpieza de la máscara de Sobel}
+Para reducir los puntos de ruido de la máscara y las zonas que no corresponden a la grieta, primero realizamos un proceso de limpieza de la máscara a través de un proceso de limpieza morfológica.
+
+El proceso de limpieza morfológica consta de dos pasos. El primer paso denominado erosión, se encarga de eliminar los puntos blancos aislados de la máscara y de reducir los bordes de las regiones. El segundo paso denominado dilatación, revierte el proceso de reducción de bordes de las regiones para devolverlas a su tamaño, pero ya con el ruido que tenían alrededor limpiado.
+
+Para realizar este proceso se genera un kernel, que es como una pequeña máscara o matriz que se aplica a cada píxel de la imagen. En el primer paso de erosión, si algún píxel dentro de la máscara es 0 o negro indicando que no es una zona de grieta, el píxel que se está procesando también será 0, eliminando los puntos de ruido. En el segundo paso de dilatación, si algún píxel dentro de la máscara es 1 o blanco, el píxel procesado se convertirá en 1 también, devolviendo el tamaño y remarcando las zonas que se habían erosionado en el paso anterior.
+
+Con esto conseguimos eliminar los puntos sueltos y generar regiones más compactas.
+
+\subsection{ROI}
+Para mejorar la detección de las zonas de la imagen donde se produce la grieta, usamos ROI (region of interest) de tal forma que vamos a seleccionar sólo la parte de la imagen donde se encuentra el bloque de hormigón. Y descartar lo que queda fuera de esta zona.
+
+Esta zona la seleccionamos a partir de la máscara que generamos a partir de los valores obtenidos con Sobel. Es decir, con los valores de la diferencia de profundidad con respecto a su entorno.
+
+Como el bloque de hormigon está en una zona donde la profundidad no varia al ser una zona plana, usando como referencia el primer par de imágenes donde el bloque aún está intacto, se va a detectar practicamente el bloque de hormigón completo sin zonas de grietas. 
+
+A partir de esta máscara, seleccionamos una zona rectangular donde se encuentra el bloque de hormigón. Para ello buscamos el punto de la primera columna y el punto de la última columna de la imagen donde hay de forma consecutiva un número de píxeles en los que no se ha detectado una zona de grieta, es decir valores de 0. Esto es debido a que como el bloque es continuo, y está rodeado de zonas con un valor de diferencia de profundidad alto, podemos detectar la zona aproximada de donde se encuentra el bloque de hormigon, buscando los puntos donde empieza la zona continua del bloque y eligiendo esos dos puntos puntos, uno en cada lado, como esquinas desde donde partiran los lados del rectángulo.
+
+\imagen{SOBEL_0001_crack_mask}{Máscara obtenida usando el gradiente de Sobel para la primera imagen sin grieta, que se usará como referencia para ROI.}
+
+\imagen{ROI_0001_roi_annotation}{Zona seleccionada como ROI.}
+
+\subsection{Detección de zonas}
+Una vez tenemos la máscara preparada, lo siguiente que hacemos es seleccionar las zonas de las máscara que corresponden a grietas. Es decir, agrupamos en zonas los píxeles de la máscaras que corresponden a una zona común.
+
+Para realizar este proceso, se realiza un proceso de conectar los píxeles entre sí dandoles una etiqueta de zona, de tal forma que todos los píxeles que pertenezcan a una misma zona se marcarán con la misma etiqueta.
+
+El criterio por el cual se decide que un píxel pertenece a una zona o no consiste es el de vecindad. Si un píxel esta adyacente a otro en alguna de las ocho posibilidades de ser vecino (horizontal, vertical y las diagonales) entonces pertenece a la misma zona y se les aplica la misma etiqueta.
+
+\imagen{ZONAS_0685_crack_overlay}{Zonas seleccionadas como grietas.}
+
+\subsection{Medición de distancias}
+Una vez que tenemos las zonas seleccionados, el último paso es medir la distancia entre los puntos. Para ello, vamos a medir las distancia entre los puntos de los bordes de las todas las filas de las distintas zonas.
+
+Para medir la apertura de la grieta en cada fila seleccionada, se toman los píxeles extremos 
+\((x_0, y)\) y \((x_1, y)\) y se transforman a coordenadas tridimensionales mediante la matriz 
+\texttt{world\_points}, obteniendo:
+
+\[
+P_0 = \text{world\_points}[y, x_0], \quad 
+P_1 = \text{world\_points}[y, x_1].
+\]
+
+La distancia entre ambos puntos se calcula como la norma euclídea en tres dimensiones:
+
+\[
+d = \lVert P_1 - P_0 \rVert 
+= \sqrt{(X_1 - X_0)^2 + (Y_1 - Y_0)^2 + (Z_1 - Z_0)^2}.
+\]
+
+Para elegir que puntos representar, se ha elegido dos criterios. Representar en cada zona el punto con la mayor distancia, y para que no se tapen al representarlos unos a otros, los siguientes puntos que se representarán son lo que tengan mayor distancia pero guarden una separación vertical mínima entre ellos.
+
+\imagen{DISTANCIAS_0685_crack_overlay_roi}{Distancias entre los puntos indicando el tamaño de las grietas detectadas.}
+
