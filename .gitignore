@@ -1,0 +1,3 @@
+# Ignorar zips, 7z y modelos grandes
+*.pt
+*.pth
