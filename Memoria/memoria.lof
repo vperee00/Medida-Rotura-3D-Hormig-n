@@ -1,36 +1,39 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Plano epipolar \cite {heyden2001} }}{9}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Líneas epipolares \cite {heyden2001} }}{9}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces La homografía correspondiente al plano $\Pi $ \cite {heyden2001} }}{11}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema del modelo de FoundationStereo \cite {wen2025foundationstereo} }}{12}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Visualización de resultados de FoundationStereo al inicio del experimento}}{18}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Visualización de resultados de FoundationStereo en un punto intermedio del experimento}}{19}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Visualización de resultados de FoundationStereo al final del experimento}}{20}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Esquema del modelo de DEFOM Stereo \cite {jiang2025defomstereo} }}{21}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Visualización de resultados de DEFOM Stereo al inicio del experimento}}{25}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Visualización de resultados de DEFOM Stereo en un punto intermedio del experimento}}{26}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Visualización de resultados de DEFOM Stereo al final del experimento}}{27}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Esquema del modelo de VGGT Stereo \cite {wang2025vggt} }}{28}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Visualización de resultados de VGGT al inicio del experimento}}{30}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Visualización de resultados de VGGT en un punto intermedio del experimento}}{31}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Visualización de resultados de VGGT al final del experimento}}{31}{figure.3.15}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Visualización de resultados del detector de Harris}}{33}{figure.3.16}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Visualización de resultados del detector de Shi-Tomasi}}{35}{figure.3.17}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Visualización de resultados del detector de FAST}}{37}{figure.3.18}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Visualización de resultados del detector de ORB}}{39}{figure.3.19}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Visualización de resultados del detector de SuperPoint}}{41}{figure.3.20}%
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Visualización de resultados del detector de D2-Net}}{42}{figure.3.21}%
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Visualización de resultados del detector de R2D2}}{44}{figure.3.22}%
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Visualización de resultados del detector Probabilistic Hough}}{47}{figure.3.23}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Máscara obtenida usando el gradiente de Sobel. Los puntos blancos son zonas donde se habría detectado zonas de grieta, y los negros el resto de puntos.}}{49}{figure.3.24}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Máscara obtenida usando el gradiente de Sobel para la primera imagen sin grieta, que se usará como referencia para ROI.}}{51}{figure.3.25}%
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Zona seleccionada como ROI.}}{52}{figure.3.26}%
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Zonas seleccionadas como grietas.}}{53}{figure.3.27}%
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Distancias entre los puntos indicando el tamaño de las grietas detectadas.}}{55}{figure.3.28}%
-\contentsline {figure}{\numberline {7.29}{\ignorespaces Par de imágenes estéreo generadas en Unity, con un patrón aleatorio, para simular un bloque de hormigón}}{61}{figure.7.29}%
-\contentsline {figure}{\numberline {7.30}{\ignorespaces Resultados de profundidad obtenidos al aplicar Foundation Stereo en el par generado con Unity}}{61}{figure.7.30}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Plano epipolar \cite {heyden2001} }}{11}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Líneas epipolares \cite {heyden2001} }}{11}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces La homografía correspondiente al plano $\Pi $ \cite {heyden2001} }}{13}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Esquema del modelo de FoundationStereo \cite {wen2025foundationstereo} }}{14}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visualización de resultados de FoundationStereo al inicio del experimento}}{20}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Visualización de resultados de FoundationStereo en un punto intermedio del experimento}}{21}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Visualización de resultados de FoundationStereo al final del experimento}}{22}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Visualización de resultados de FoundationStereo en 3D con Open3D}}{23}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Esquema del modelo de DEFOM Stereo \cite {jiang2025defomstereo} }}{24}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Visualización de resultados de DEFOM Stereo al inicio del experimento}}{27}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Visualización de resultados de DEFOM Stereo en un punto intermedio del experimento}}{28}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Visualización de resultados de DEFOM Stereo al final del experimento}}{29}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Visualización de resultados de DEFOMStereo en 3D con Open3D}}{30}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Esquema del modelo de VGGT Stereo \cite {wang2025vggt} }}{31}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Visualización de resultados de VGGT al inicio del experimento}}{33}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Visualización de resultados de VGGT en un punto intermedio del experimento}}{34}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Visualización de resultados de VGGT al final del experimento}}{34}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Visualización de resultados de VGGT en 3D con Open3D}}{35}{figure.3.18}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Visualización de resultados del detector de Harris}}{37}{figure.3.19}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Visualización de resultados del detector de Shi-Tomasi}}{39}{figure.3.20}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Visualización de resultados del detector de FAST}}{41}{figure.3.21}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Visualización de resultados del detector de ORB}}{43}{figure.3.22}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Visualización de resultados del detector de SuperPoint}}{45}{figure.3.23}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Visualización de resultados del detector de D2-Net}}{46}{figure.3.24}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Visualización de resultados del detector de R2D2}}{48}{figure.3.25}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Visualización de resultados del detector Probabilistic Hough}}{51}{figure.3.26}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Máscara obtenida usando el gradiente de Sobel. Los puntos blancos son zonas donde se habría detectado zonas de grieta, y los negros el resto de puntos.}}{53}{figure.3.27}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Máscara obtenida usando el gradiente de Sobel para la primera imagen sin grieta, que se usará como referencia para ROI.}}{55}{figure.3.28}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Zona seleccionada como ROI.}}{56}{figure.3.29}%
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Zonas seleccionadas como grietas.}}{57}{figure.3.30}%
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Distancias entre los puntos indicando el tamaño de las grietas detectadas.}}{59}{figure.3.31}%
+\contentsline {figure}{\numberline {7.32}{\ignorespaces Par de imágenes estéreo generadas en Unity, con un patrón aleatorio, para simular un bloque de hormigón}}{65}{figure.7.32}%
+\contentsline {figure}{\numberline {7.33}{\ignorespaces Resultados de profundidad obtenidos al aplicar Foundation Stereo en el par generado con Unity}}{65}{figure.7.33}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Pantalla inicial}}{71}{figure.Alph2.1}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Pantalla con los resultados}}{72}{figure.Alph2.2}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Pantalla inicial}}{75}{figure.Alph2.1}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Pantalla con los resultados}}{76}{figure.Alph2.2}%

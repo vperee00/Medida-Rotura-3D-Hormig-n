@@ -4,7 +4,7 @@ En esta sección vamos a explicar los modelos y técnicas empleados para el desa
 
 \section{Rectificado de imágenes}
 
-Para la obtención del par de imágenes se han usado dos cámaras que están paralelas la una a la otra, tomando una imagen de la escena cada una al mismo tiempo.
+Para la obtención del par de imágenes se han usado dos cámaras que que están dispuestas una al lado de la otra, con los ejes ópticos paralelos, formando lo que se conoce como pár estéreo, tomando una imagen de la escena cada una al mismo tiempo.
 
 Para poder hacer el análisis de las imágenes, necesitamos saber que puntos o píxeles de una imagen se corresponden con los de la otra imagen.
 
@@ -90,7 +90,7 @@ y = \frac{h_{21}\,x' + h_{22}\,y' + h_{23}}{h_{31}\,x' + h_{32}\,y' + h_{33}}.
 
 
 \section{FoundationStereo}
-FoundationStereo es un modelo desarrollado por nVidia que permite que a partir de un par de imágenes de una escena, representar cada píxel de la imagen en un espacio en tres dimensiones. Es un modelo generalista o "zero-shot", que quiere decir que se ha diseñado para ser capaz de analizar cualquier tipo de par de imágenes sin necesitar ajustes específicos para obtener los resultados esperados.
+FoundationStereo \cite{wen2025foundationstereo} es un modelo desarrollado por NVIDIA que permite que a partir de un par de imágenes de una escena, representar cada píxel de la imagen en un espacio en tres dimensiones. Es un modelo generalista o "zero-shot", que quiere decir que se ha diseñado para ser capaz de analizar cualquier tipo de par de imágenes sin necesitar ajustes específicos para obtener los resultados esperados.
 
 \imagen{FoundationStereo_esquema}{Esquema del modelo de FoundationStereo \cite{wen2025foundationstereo} }
 
@@ -159,6 +159,7 @@ Los resultados obtenidos por FoundationStereo, como se pueden ver en la visualiz
 \imagen{FoundationStereo_0001_vis}{Visualización de resultados de FoundationStereo al inicio del experimento}
 \imagen{FoundationStereo_0401_vis}{Visualización de resultados de FoundationStereo en un punto intermedio del experimento}
 \imagen{FoundationStereo_0685_vis}{Visualización de resultados de FoundationStereo al final del experimento}
+\imagen{FoundationStereo_0685_3D}{Visualización de resultados de FoundationStereo en 3D con Open3D}
 
 \section{DEFOM-Stereo}
 DEFOM-Stereo es un modelo desarrollado por investigadores de Insta360 Research y la Chinese University of Hong Kong que combina las ventajas de la estimación monocular de profundidad con el emparejamiento estéreo. Como en el caso de FoundationStereo, su objetivo es mejorar la obtención de mapas de disparidad en escenas reales, donde problemas como las zonas sin textura, las oclusiones o la iluminación complicada suelen generar que no se obtengan buenos resultados.
@@ -205,6 +206,7 @@ Los resultados que obtenemos con DEFOM Stereo son muy similares a los que obtuvi
 \imagen{DEFOMStereo_0001_vis}{Visualización de resultados de DEFOM Stereo al inicio del experimento}
 \imagen{DEFOMStereo_0401_vis}{Visualización de resultados de DEFOM Stereo en un punto intermedio del experimento}
 \imagen{DEFOMStereo_0685_vis}{Visualización de resultados de DEFOM Stereo al final del experimento}
+\imagen{DEFOMStereo_0685_3D}{Visualización de resultados de DEFOMStereo en 3D con Open3D}
 
 \section{VGGT}
 VGGT es un modelo desarrollado por el Visual Geometry Group de la Universidad de Oxford junto con Meta AI. Se trata de una red neuronal basada en transformadores capaz de, a partir de una o varias de imágenes de una escena, estimar directamente todos sus atributos 3D principales, como los parámetros de cámara, mapas de profundidad, mapas de puntos y trayectorias 3D de los píxeles.
@@ -241,6 +243,7 @@ Como pasaba en los anteriores modelos, VGGT es capaz de crear una buena represen
 \imagen{VGGT_0001_vis}{Visualización de resultados de VGGT al inicio del experimento}
 \imagen{VGGT_0401_vis}{Visualización de resultados de VGGT en un punto intermedio del experimento}
 \imagen{VGGT_0685_vis}{Visualización de resultados de VGGT al final del experimento}
+\imagen{VGGT_0685_3D}{Visualización de resultados de VGGT en 3D con Open3D}
 
 \section{Detectores Esquinas}
 Una vez hemos podido obtener con alguno de estos modelos una predicción de la profundidad de cada píxel, necesitamos un proceso automático para poder hacer el seguimiento de los puntos. La primera aproximación ha sido detectar las esquinas del bloque de hormigón, y hacer un seguimiento de esos puntos usando los mapas de puntos 3D de los modelos.
@@ -257,7 +260,19 @@ En lugar de calcular directamente dichos valores propios, lo que es muy costoso 
 R = \det(M) - k \, \mathrm{Tr}(M)^2,
 \]
 
-donde \(k\) es un parámetro que ajusta la sensibilidad del detector. Este criterio permite distinguir entre esquinas, bordes y zonas planas de manera eficiente sin que le afecten las rotaciones o el contraste de la imagen.
+donde \(M\) es el \emph{tensor de estructura} o matriz de autocorrelación formada por 
+
+\[
+M = 
+\begin{bmatrix}
+	\sum I_x^2 & \sum I_x I_y \\
+	\sum I_x I_y & \sum I_y^2
+\end{bmatrix},
+\]
+
+siendo \(I_x\) y \(I_y\) los gradientes de la imagen en las direcciones horizontal y vertical.
+
+Y donde \(k\) es un parámetro que ajusta la sensibilidad del detector. Este criterio permite distinguir entre esquinas, bordes y zonas planas de manera eficiente sin que le afecten las rotaciones o el contraste de la imagen.
 
 El uso del detector de Harris consiste en que primero se calculan los gradientes de la imagen y se combinan con un filtrado gaussiano para reducir el ruido. Después se evalúa la respuesta \(R\) en cada píxel. Por último, se seleccionan como esquinas aquellos puntos donde esta respuesta es especialmente alta, asegurando además que sean máximos locales en su entorno. De esta manera, el algoritmo identifica de forma automática los puntos más representativos de la imagen, que suelen coincidir con esquinas.
 
@@ -366,7 +381,7 @@ Como vemos con los resultados, probablemente debido al patrón speckle del bloqu
 Los detectores encuentran puntos de interés en cualquier parte debido a este patrón y las sombras que proyecta. Esto hace que no se haya podido usar estos métodos como punto de partida para seleccionar unos puntos de partida y a partir de ellos con los mapas 3D de los modelos de visión estéreo realizar una estimación automática de tamaño de las grietas que se generan en el bloque.
 
 \section{Detectores de líneas}
-Como los detectores de esquinas no produjeron los resultados esperados, se decidió usar un detector de líneas, para ver si siendo capaces de detectar la formar del bloque de hormigón a través de las líneas de sus bordes, podíamos ser capaces de encontrar las esquinas a través de la intersección de las mismas y de esta forma encontrar las esquinas. Y partir de ellas ser capaces de encontrar los puntos de interés del bloque y realizar el seguimiento de los puntos y realizar el estudio del progreso del estado del bloque y las grietas.
+Como los detectores de esquinas no produjeron los resultados esperados, se decidió usar un detector de líneas, para ver si siendo capaces de detectar la forma de la probeta de hormigón a través de las líneas de sus bordes, podíamos ser capaces de encontrar las esquinas a través de la intersección de las mismas y de esta forma encontrar las esquinas. Y partir de ellas ser capaces de encontrar los puntos de interés del bloque y realizar el seguimiento de los puntos y realizar el estudio del progreso del estado del bloque y las grietas.
 
 \subsection{Probabilistic Hough}
 El método que se uso fue el de Probabilistic Hough. La transformada de Hough tradicional detecta líneas en una imagen a partir de los píxeles que forman sus bordes. El procedimiento comienza obteniendo un mapa de bordes, normalmente con un detector como Canny. A continuación, cada píxel de ese mapa se transforma al espacio de parámetros de las rectas, es decir, a una representación donde cada posible línea queda definida por una orientación y una posición. En este espacio, un mismo píxel no corresponde a una sola recta, sino a un conjunto de posibles rectas que podrían pasar por él. Al realizar esta transformación para todos los píxeles de borde, los que pertenecen a la misma línea en la imagen tienen los mismos parámetros, lo que permite detectar la recta que forman. De esta manera, con los puntos con los mismos valores en el espacio de parámetros se pueden reconstruir las líneas de la imagen, incluso si aparecen fragmentadas. La mayor desventaja de este método es que es necesario procesar todos los píxeles de borde, lo que es computacionalmente costoso \cite{duda1972hough}.

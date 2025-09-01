@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  1 SEP 2025 07:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  1 SEP 2025 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -804,7 +804,7 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 \Gin@req@width=\dimen288
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 37
-6.
+5.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -820,40 +820,40 @@ LaTeX Info: Redefining \% on input line 13.
 (./tex/D_Manual_programador.aux) (./tex/E_Manual_usuario.aux))
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 376.
-LaTeX Font Info:    ... okay on input line 376.
-LaTeX Info: Redefining \. on input line 376.
-LaTeX Info: Redefining \% on input line 376.
-LaTeX Info: Redefining \microtypecontext on input line 376.
-Package microtype Info: Applying patch `item' on input line 376.
-Package microtype Info: Applying patch `toc' on input line 376.
-Package microtype Info: Applying patch `eqnum' on input line 376.
-Package microtype Info: Applying patch `footnote' on input line 376.
-Package microtype Info: Applying patch `verbatim' on input line 376.
-LaTeX Info: Redefining \microtypesetup on input line 376.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 375.
+LaTeX Font Info:    ... okay on input line 375.
+LaTeX Info: Redefining \. on input line 375.
+LaTeX Info: Redefining \% on input line 375.
+LaTeX Info: Redefining \microtypecontext on input line 375.
+Package microtype Info: Applying patch `item' on input line 375.
+Package microtype Info: Applying patch `toc' on input line 375.
+Package microtype Info: Applying patch `eqnum' on input line 375.
+Package microtype Info: Applying patch `footnote' on input line 375.
+Package microtype Info: Applying patch `verbatim' on input line 375.
+LaTeX Info: Redefining \microtypesetup on input line 375.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 376.
+LaTeX Info: Redefining \showhyphens on input line 375.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -886,7 +886,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 376.
+Package hyperref Info: Link coloring ON on input line 375.
  (./memoria.out) (./memoria.out)
 \@outlinefile=\write4
 \openout4 = `memoria.out'.
@@ -894,47 +894,47 @@ Package hyperref Info: Link coloring ON on input line 376.
 <img/escudoUBU.pdf, id=132, 98.2805pt x 163.92221pt>
 File: img/escudoUBU.pdf Graphic file (type pdf)
 <use img/escudoUBU.pdf>
-Package pdftex.def Info: img/escudoUBU.pdf  used on input line 378.
+Package pdftex.def Info: img/escudoUBU.pdf  used on input line 377.
 (pdftex.def)             Requested size: 51.17813pt x 85.35826pt.
 <img/escudoUVA.png, id=133, 401.5pt x 401.5pt>
 File: img/escudoUVA.png Graphic file (type png)
 <use img/escudoUVA.png>
-Package pdftex.def Info: img/escudoUVA.png  used on input line 378.
+Package pdftex.def Info: img/escudoUVA.png  used on input line 377.
 (pdftex.def)             Requested size: 85.35896pt x 85.35826pt.
 <img/escudoULE.pdf, id=135, 212.795pt x 389.455pt>
 File: img/escudoULE.pdf Graphic file (type pdf)
 <use img/escudoULE.pdf>
-Package pdftex.def Info: img/escudoULE.pdf  used on input line 378.
+Package pdftex.def Info: img/escudoULE.pdf  used on input line 377.
 (pdftex.def)             Requested size: 46.63644pt x 85.35826pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-78.
+77.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-78.
+77.
 
 (/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-378.
+377.
 
 (/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-378.
+377.
 
 (/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 378.
+(Font)              <12> on input line 377.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 378.
+(Font)              <8> on input line 377.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 378.
+(Font)              <6> on input line 377.
 
 
 [1
@@ -954,18 +954,18 @@ ltiple pdfs with page group included in a single page
 [3]
 File: img/escudoUBU.pdf Graphic file (type pdf)
 <use img/escudoUBU.pdf>
-Package pdftex.def Info: img/escudoUBU.pdf  used on input line 393.
+Package pdftex.def Info: img/escudoUBU.pdf  used on input line 392.
 (pdftex.def)             Requested size: 51.17813pt x 85.35826pt.
 File: img/escudoUVA.png Graphic file (type png)
 <use img/escudoUVA.png>
-Package pdftex.def Info: img/escudoUVA.png  used on input line 394.
+Package pdftex.def Info: img/escudoUVA.png  used on input line 393.
 (pdftex.def)             Requested size: 85.35896pt x 85.35826pt.
 File: img/escudoULE.pdf Graphic file (type pdf)
 <use img/escudoULE.pdf>
-Package pdftex.def Info: img/escudoULE.pdf  used on input line 395.
+Package pdftex.def Info: img/escudoULE.pdf  used on input line 394.
 (pdftex.def)             Requested size: 46.63644pt x 85.35826pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-21.
+20.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -987,7 +987,7 @@ Package microtype Info: Character `029' is missing
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
-85.
+84.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1017,13 +1017,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ])
 
-LaTeX Info: Redefining \. on input line 486.
-LaTeX Info: Redefining \% on input line 486.
+LaTeX Info: Redefining \. on input line 485.
+LaTeX Info: Redefining \% on input line 485.
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 486.
+(in both cases you will find help in the memoir manual). on input line 485.
 
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
@@ -1043,8 +1043,8 @@ Underfull \vbox (badness 1708) has occurred while \output is active []
 
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
 
-LaTeX Info: Redefining \. on input line 490.
-LaTeX Info: Redefining \% on input line 490.
+LaTeX Info: Redefining \. on input line 489.
+LaTeX Info: Redefining \% on input line 489.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
@@ -1056,7 +1056,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.496 \part*{Memoria}
+l.495 \part*{Memoria}
                       [1
 
 
@@ -1068,68 +1068,76 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.496 \part*{Memoria}
+l.495 \part*{Memoria}
                       [2]
 \openout2 = `./tex/1_Introduccion.aux'.
 
  (./tex/1_Introduccion.tex
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.10 
-      [3
+l.6 
+     [3
 
 
-])
+]
 
-LaTeX Info: Redefining \. on input line 500.
-LaTeX Info: Redefining \% on input line 500.
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.500 \include{./tex/1_Introduccion}
-                                     [4]
-\openout2 = `./tex/2_Objetivos_del_proyecto.aux'.
+l.12 
+      [4])
 
- (./tex/2_Objetivos_del_proyecto.tex)
-
+LaTeX Info: Redefining \. on input line 499.
+LaTeX Info: Redefining \% on input line 499.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.501 \include{./tex/2_Objetivos_del_proyecto}
-                                               [5
+l.499 \include{./tex/1_Introduccion}
+                                     [5]
+\openout2 = `./tex/2_Objetivos_del_proyecto.aux'.
 
-
-
-
-]
-\openout2 = `./tex/3_Conceptos_teoricos.aux'.
-
-
-(./tex/3_Conceptos_teoricos.tex
+ (./tex/2_Objetivos_del_proyecto.tex
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \capitulo{3}{Conceptos teóricos}
-                                      [6
+l.1 \capitulo{2}{Objetivos del proyecto}
+                                         [6
+
+
+
+
+])
+
+[7]
+\openout2 = `./tex/3_Conceptos_teoricos.aux'.
+
+ (./tex/3_Conceptos_teoricos.tex
+
+[8
 
 
 
 
 ]
 
-[7{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-<./img/lineas_epipolares_02.png, id=364, 236.5638pt x 155.8623pt>
+[9{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+<./img/lineas_epipolares_02.png, id=378, 236.5638pt x 155.8623pt>
 File: ./img/lineas_epipolares_02.png Graphic file (type png)
 <use ./img/lineas_epipolares_02.png>
 Package pdftex.def Info: ./img/lineas_epipolares_02.png  used on input line 44.
@@ -1143,8 +1151,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
-[8{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<./img/lineas_epipolares.png, id=377, 190.5519pt x 139.2402pt>
+[10{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+<./img/lineas_epipolares.png, id=391, 190.5519pt x 139.2402pt>
 File: ./img/lineas_epipolares.png Graphic file (type png)
 <use ./img/lineas_epipolares.png>
 Package pdftex.def Info: ./img/lineas_epipolares.png  used on input line 45.
@@ -1156,8 +1164,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 49.
 LaTeX Info: Redefining \% on input line 49.
-[9 <./img/lineas_epipolares_02.png> <./img/lineas_epipolares.png>]
-<./img/lineas_epipolares_03.png, id=386, 236.082pt x 181.8795pt>
+[11 <./img/lineas_epipolares_02.png> <./img/lineas_epipolares.png>]
+<./img/lineas_epipolares_03.png, id=400, 236.082pt x 181.8795pt>
 File: ./img/lineas_epipolares_03.png Graphic file (type png)
 <use ./img/lineas_epipolares_03.png>
 Package pdftex.def Info: ./img/lineas_epipolares_03.png  used on input line 65.
@@ -1171,7 +1179,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
-[10{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+[12{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 Overfull \hbox (7.35387pt too wide) detected at line 89
 [] \OT1/lmr/m/n/12 = \OML/lmm/m/it/12 H[] []  \OT1/lmr/m/n/12 =[]\OMS/lmsy/m/n/
 12 )  \OML/lmm/m/it/12 x \OT1/lmr/m/n/12 = []\OML/lmm/m/it/12 ;  y \OT1/lmr/m/n
@@ -1185,8 +1193,8 @@ Underfull \vbox (badness 1325) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 94.
 LaTeX Info: Redefining \% on input line 94.
-[11 <./img/lineas_epipolares_03.png>]
-<./img/FoundationStereo_esquema.png, id=406, 439.8834pt x 167.9073pt>
+[13 <./img/lineas_epipolares_03.png>]
+<./img/FoundationStereo_esquema.png, id=422, 439.8834pt x 167.9073pt>
 File: ./img/FoundationStereo_esquema.png Graphic file (type png)
 <use ./img/FoundationStereo_esquema.png>
 Package pdftex.def Info: ./img/FoundationStereo_esquema.png  used on input line
@@ -1196,27 +1204,27 @@ Package pdftex.def Info: ./img/FoundationStereo_esquema.png  used on input line
 
 LaTeX Info: Redefining \. on input line 103.
 LaTeX Info: Redefining \% on input line 103.
-[12 <./img/FoundationStereo_esquema.png>]
+[14 <./img/FoundationStereo_esquema.png>]
 
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
-[13]
+[15]
 
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
-[14]
+[16]
 Underfull \vbox (badness 5726) has occurred while \output is active []
 
 
 
 LaTeX Info: Redefining \. on input line 137.
 LaTeX Info: Redefining \% on input line 137.
-[15]
+[17]
 
 LaTeX Info: Redefining \. on input line 152.
 LaTeX Info: Redefining \% on input line 152.
-[16]
-<./img/FoundationStereo_0001_vis.png, id=437, 925.4575pt x 1003.75pt>
+[18]
+<./img/FoundationStereo_0001_vis.png, id=452, 925.4575pt x 1003.75pt>
 File: ./img/FoundationStereo_0001_vis.png Graphic file (type png)
 <use ./img/FoundationStereo_0001_vis.png>
 Package pdftex.def Info: ./img/FoundationStereo_0001_vis.png  used on input lin
@@ -1230,8 +1238,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 159.
 LaTeX Info: Redefining \% on input line 159.
-[17]
-<./img/FoundationStereo_0401_vis.png, id=443, 925.4575pt x 1003.75pt>
+[19]
+<./img/FoundationStereo_0401_vis.png, id=459, 925.4575pt x 1003.75pt>
 File: ./img/FoundationStereo_0401_vis.png Graphic file (type png)
 <use ./img/FoundationStereo_0401_vis.png>
 Package pdftex.def Info: ./img/FoundationStereo_0401_vis.png  used on input lin
@@ -1245,62 +1253,70 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 160.
 LaTeX Info: Redefining \% on input line 160.
-[18 <./img/FoundationStereo_0001_vis.png (PNG copy)>]
+[20 <./img/FoundationStereo_0001_vis.png (PNG copy)>]
 
 LaTeX Info: Redefining \. on input line 160.
 LaTeX Info: Redefining \% on input line 160.
-[19 <./img/FoundationStereo_0401_vis.png (PNG copy)>]
-<./img/FoundationStereo_0685_vis.png, id=453, 925.4575pt x 1003.75pt>
+[21 <./img/FoundationStereo_0401_vis.png (PNG copy)>]
+<./img/FoundationStereo_0685_vis.png, id=468, 925.4575pt x 1003.75pt>
 File: ./img/FoundationStereo_0685_vis.png Graphic file (type png)
 <use ./img/FoundationStereo_0685_vis.png>
 Package pdftex.def Info: ./img/FoundationStereo_0685_vis.png  used on input lin
 e 161.
 (pdftex.def)             Requested size: 344.69766pt x 373.86287pt.
+<./img/FoundationStereo_0685_3D.png, id=469, 200.4288pt x 204.5241pt>
+File: ./img/FoundationStereo_0685_3D.png Graphic file (type png)
+<use ./img/FoundationStereo_0685_3D.png>
+Package pdftex.def Info: ./img/FoundationStereo_0685_3D.png  used on input line
+ 162.
+(pdftex.def)             Requested size: 344.69766pt x 351.77766pt.
 
 
-LaTeX Info: Redefining \. on input line 167.
-LaTeX Info: Redefining \% on input line 167.
-[20
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+LaTeX Info: Redefining \. on input line 162.
+LaTeX Info: Redefining \% on input line 162.
+[22
 
  <./img/FoundationStereo_0685_vis.png (PNG copy)>]
-<./img/DEFOMStereo_esquema.png, id=458, 364.2408pt x 166.9437pt>
+Underfull \vbox (badness 2293) has occurred while \output is active []
+
+
+
+LaTeX Info: Redefining \. on input line 168.
+LaTeX Info: Redefining \% on input line 168.
+[23 <./img/FoundationStereo_0685_3D.png>]
+<./img/DEFOMStereo_esquema.png, id=480, 364.2408pt x 166.9437pt>
 File: ./img/DEFOMStereo_esquema.png Graphic file (type png)
 <use ./img/DEFOMStereo_esquema.png>
-Package pdftex.def Info: ./img/DEFOMStereo_esquema.png  used on input line 170.
+Package pdftex.def Info: ./img/DEFOMStereo_esquema.png  used on input line 171.
 
 (pdftex.def)             Requested size: 344.69766pt x 157.99442pt.
 
 
-LaTeX Info: Redefining \. on input line 177.
-LaTeX Info: Redefining \% on input line 177.
-[21 <./img/DEFOMStereo_esquema.png>]
+LaTeX Info: Redefining \. on input line 178.
+LaTeX Info: Redefining \% on input line 178.
+[24 <./img/DEFOMStereo_esquema.png>]
 
-LaTeX Info: Redefining \. on input line 187.
-LaTeX Info: Redefining \% on input line 187.
-[22]
-
-LaTeX Info: Redefining \. on input line 202.
-LaTeX Info: Redefining \% on input line 202.
-[23]
-<./img/DEFOMStereo_0001_vis.png, id=479, 666.3294pt x 722.7pt>
-File: ./img/DEFOMStereo_0001_vis.png Graphic file (type png)
-<use ./img/DEFOMStereo_0001_vis.png>
-Package pdftex.def Info: ./img/DEFOMStereo_0001_vis.png  used on input line 205
-.
-(pdftex.def)             Requested size: 344.69766pt x 373.86531pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
+LaTeX Info: Redefining \. on input line 189.
+LaTeX Info: Redefining \% on input line 189.
+[25]
 
 LaTeX Info: Redefining \. on input line 205.
 LaTeX Info: Redefining \% on input line 205.
-[24]
-<./img/DEFOMStereo_0401_vis.png, id=485, 666.3294pt x 722.7pt>
+[26]
+<./img/DEFOMStereo_0001_vis.png, id=501, 666.3294pt x 722.7pt>
+File: ./img/DEFOMStereo_0001_vis.png Graphic file (type png)
+<use ./img/DEFOMStereo_0001_vis.png>
+Package pdftex.def Info: ./img/DEFOMStereo_0001_vis.png  used on input line 206
+.
+(pdftex.def)             Requested size: 344.69766pt x 373.86531pt.
+<./img/DEFOMStereo_0401_vis.png, id=502, 666.3294pt x 722.7pt>
 File: ./img/DEFOMStereo_0401_vis.png Graphic file (type png)
 <use ./img/DEFOMStereo_0401_vis.png>
-Package pdftex.def Info: ./img/DEFOMStereo_0401_vis.png  used on input line 206
+Package pdftex.def Info: ./img/DEFOMStereo_0401_vis.png  used on input line 207
 .
 (pdftex.def)             Requested size: 344.69766pt x 373.86531pt.
 
@@ -1309,52 +1325,66 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 206.
-LaTeX Info: Redefining \% on input line 206.
-[25 <./img/DEFOMStereo_0001_vis.png>]
-
-LaTeX Info: Redefining \. on input line 206.
-LaTeX Info: Redefining \% on input line 206.
-[26 <./img/DEFOMStereo_0401_vis.png>]
-<./img/DEFOMStereo_0685_vis.png, id=497, 666.3294pt x 722.7pt>
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+[27 <./img/DEFOMStereo_0001_vis.png>]
+<./img/DEFOMStereo_0685_vis.png, id=509, 666.3294pt x 722.7pt>
 File: ./img/DEFOMStereo_0685_vis.png Graphic file (type png)
 <use ./img/DEFOMStereo_0685_vis.png>
-Package pdftex.def Info: ./img/DEFOMStereo_0685_vis.png  used on input line 207
+Package pdftex.def Info: ./img/DEFOMStereo_0685_vis.png  used on input line 208
 .
 (pdftex.def)             Requested size: 344.69766pt x 373.86531pt.
 
-Underfull \vbox (badness 2799) has occurred while \output is active []
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 213.
-LaTeX Info: Redefining \% on input line 213.
-[27
+LaTeX Info: Redefining \. on input line 208.
+LaTeX Info: Redefining \% on input line 208.
+[28 <./img/DEFOMStereo_0401_vis.png>]
 
- <./img/DEFOMStereo_0685_vis.png>]
-<./img/VGGT_esquema.png, id=503, 381.8265pt x 136.1085pt>
+LaTeX Info: Redefining \. on input line 208.
+LaTeX Info: Redefining \% on input line 208.
+[29 <./img/DEFOMStereo_0685_vis.png>]
+<./img/DEFOMStereo_0685_3D.png, id=520, 214.1601pt x 215.8464pt>
+File: ./img/DEFOMStereo_0685_3D.png Graphic file (type png)
+<use ./img/DEFOMStereo_0685_3D.png>
+Package pdftex.def Info: ./img/DEFOMStereo_0685_3D.png  used on input line 209.
+
+(pdftex.def)             Requested size: 344.69766pt x 347.41646pt.
+<./img/VGGT_esquema.png, id=521, 381.8265pt x 136.1085pt>
 File: ./img/VGGT_esquema.png Graphic file (type png)
 <use ./img/VGGT_esquema.png>
-Package pdftex.def Info: ./img/VGGT_esquema.png  used on input line 214.
+Package pdftex.def Info: ./img/VGGT_esquema.png  used on input line 216.
 (pdftex.def)             Requested size: 344.69766pt x 122.87656pt.
 
 
-LaTeX Info: Redefining \. on input line 222.
-LaTeX Info: Redefining \% on input line 222.
-[28 <./img/VGGT_esquema.png>]
+LaTeX Info: Redefining \. on input line 216.
+LaTeX Info: Redefining \% on input line 216.
+[30
 
-LaTeX Info: Redefining \. on input line 237.
-LaTeX Info: Redefining \% on input line 237.
-[29]
-<./img/VGGT_0001_vis.png, id=519, 748.7172pt x 374.3586pt>
+ <./img/DEFOMStereo_0685_3D.png>]
+Underfull \vbox (badness 2142) has occurred while \output is active []
+
+
+
+LaTeX Info: Redefining \. on input line 226.
+LaTeX Info: Redefining \% on input line 226.
+[31 <./img/VGGT_esquema.png>]
+
+LaTeX Info: Redefining \. on input line 239.
+LaTeX Info: Redefining \% on input line 239.
+[32]
+<./img/VGGT_0001_vis.png, id=543, 748.7172pt x 374.3586pt>
 File: ./img/VGGT_0001_vis.png Graphic file (type png)
 <use ./img/VGGT_0001_vis.png>
-Package pdftex.def Info: ./img/VGGT_0001_vis.png  used on input line 241.
+Package pdftex.def Info: ./img/VGGT_0001_vis.png  used on input line 243.
 (pdftex.def)             Requested size: 344.69766pt x 172.34984pt.
-<./img/VGGT_0401_vis.png, id=520, 748.7172pt x 374.3586pt>
+<./img/VGGT_0401_vis.png, id=544, 748.7172pt x 374.3586pt>
 File: ./img/VGGT_0401_vis.png Graphic file (type png)
 <use ./img/VGGT_0401_vis.png>
-Package pdftex.def Info: ./img/VGGT_0401_vis.png  used on input line 242.
+Package pdftex.def Info: ./img/VGGT_0401_vis.png  used on input line 244.
 (pdftex.def)             Requested size: 344.69766pt x 172.34984pt.
 
 
@@ -1362,26 +1392,39 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 242.
-LaTeX Info: Redefining \% on input line 242.
-[30 <./img/VGGT_0001_vis.png>]
-<./img/VGGT_0685_vis.png, id=527, 748.7172pt x 374.3586pt>
+LaTeX Info: Redefining \. on input line 244.
+LaTeX Info: Redefining \% on input line 244.
+[33 <./img/VGGT_0001_vis.png>]
+<./img/VGGT_0685_vis.png, id=551, 748.7172pt x 374.3586pt>
 File: ./img/VGGT_0685_vis.png Graphic file (type png)
 <use ./img/VGGT_0685_vis.png>
-Package pdftex.def Info: ./img/VGGT_0685_vis.png  used on input line 243.
+Package pdftex.def Info: ./img/VGGT_0685_vis.png  used on input line 245.
 (pdftex.def)             Requested size: 344.69766pt x 172.34984pt.
+<./img/VGGT_0685_3D.png, id=552, 204.765pt x 170.3163pt>
+File: ./img/VGGT_0685_3D.png Graphic file (type png)
+<use ./img/VGGT_0685_3D.png>
+Package pdftex.def Info: ./img/VGGT_0685_3D.png  used on input line 246.
+(pdftex.def)             Requested size: 344.69766pt x 286.72714pt.
 
 
-LaTeX Info: Redefining \. on input line 253.
-LaTeX Info: Redefining \% on input line 253.
-[31 <./img/VGGT_0401_vis.png> <./img/VGGT_0685_vis.png>]
-<./img/DETECTORES_LINEAS_400_input_vggt_harris.png, id=536, 519.9425pt x 519.94
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+LaTeX Info: Redefining \. on input line 246.
+LaTeX Info: Redefining \% on input line 246.
+[34 <./img/VGGT_0401_vis.png> <./img/VGGT_0685_vis.png>]
+
+LaTeX Info: Redefining \. on input line 256.
+LaTeX Info: Redefining \% on input line 256.
+[35 <./img/VGGT_0685_3D.png>]
+<./img/DETECTORES_LINEAS_400_input_vggt_harris.png, id=567, 519.9425pt x 519.94
 25pt>
 File: ./img/DETECTORES_LINEAS_400_input_vggt_harris.png Graphic file (type png)
 
 <use ./img/DETECTORES_LINEAS_400_input_vggt_harris.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_harris.png  use
-d on input line 267.
+d on input line 282.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1389,20 +1432,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 267.
-LaTeX Info: Redefining \% on input line 267.
-[32]
+LaTeX Info: Redefining \. on input line 282.
+LaTeX Info: Redefining \% on input line 282.
+[36]
 
-LaTeX Info: Redefining \. on input line 277.
-LaTeX Info: Redefining \% on input line 277.
-[33 <./img/DETECTORES_LINEAS_400_input_vggt_harris.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png, id=551, 519.9425pt x 519
+LaTeX Info: Redefining \. on input line 292.
+LaTeX Info: Redefining \% on input line 292.
+[37 <./img/DETECTORES_LINEAS_400_input_vggt_harris.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png, id=583, 519.9425pt x 519
 .9425pt>
 File: ./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png Graphic file (type p
 ng)
 <use ./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png  
-used on input line 286.
+used on input line 301.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1410,45 +1453,22 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 286.
-LaTeX Info: Redefining \% on input line 286.
-[34]
+LaTeX Info: Redefining \. on input line 301.
+LaTeX Info: Redefining \% on input line 301.
+[38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-LaTeX Info: Redefining \. on input line 294.
-LaTeX Info: Redefining \% on input line 294.
-[35 <./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_fast.png, id=564, 519.9425pt x 519.9425
+LaTeX Info: Redefining \. on input line 309.
+LaTeX Info: Redefining \% on input line 309.
+[39 <./img/DETECTORES_LINEAS_400_input_vggt_shitomasi.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_fast.png, id=596, 519.9425pt x 519.9425
 pt>
 File: ./img/DETECTORES_LINEAS_400_input_vggt_fast.png Graphic file (type png)
 <use ./img/DETECTORES_LINEAS_400_input_vggt_fast.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_fast.png  used 
-on input line 302.
-(pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-LaTeX Info: Redefining \. on input line 302.
-LaTeX Info: Redefining \% on input line 302.
-[36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-LaTeX Info: Redefining \. on input line 310.
-LaTeX Info: Redefining \% on input line 310.
-[37 <./img/DETECTORES_LINEAS_400_input_vggt_fast.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_orb.png, id=579, 519.9425pt x 519.9425p
-t>
-File: ./img/DETECTORES_LINEAS_400_input_vggt_orb.png Graphic file (type png)
-<use ./img/DETECTORES_LINEAS_400_input_vggt_orb.png>
-Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_orb.png  used o
-n input line 317.
+on input line 317.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1458,18 +1478,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 317.
 LaTeX Info: Redefining \% on input line 317.
-[38]
+[40]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 326.
-LaTeX Info: Redefining \% on input line 326.
-[39 <./img/DETECTORES_LINEAS_400_input_vggt_orb.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png, id=592, 519.9425pt x 51
-9.9425pt>
-File: ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png Graphic file (type 
-png)
-<use ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png>
-Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png 
- used on input line 334.
+
+
+LaTeX Info: Redefining \. on input line 325.
+LaTeX Info: Redefining \% on input line 325.
+[41 <./img/DETECTORES_LINEAS_400_input_vggt_fast.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_orb.png, id=609, 519.9425pt x 519.9425p
+t>
+File: ./img/DETECTORES_LINEAS_400_input_vggt_orb.png Graphic file (type png)
+<use ./img/DETECTORES_LINEAS_400_input_vggt_orb.png>
+Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_orb.png  used o
+n input line 332.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1477,35 +1499,56 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 334.
-LaTeX Info: Redefining \% on input line 334.
-[40]
+LaTeX Info: Redefining \. on input line 332.
+LaTeX Info: Redefining \% on input line 332.
+[42]
 
 LaTeX Info: Redefining \. on input line 341.
 LaTeX Info: Redefining \% on input line 341.
-[41 <./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png, id=605, 519.9425pt x 519.94
+[43 <./img/DETECTORES_LINEAS_400_input_vggt_orb.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png, id=624, 519.9425pt x 51
+9.9425pt>
+File: ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png Graphic file (type 
+png)
+<use ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png>
+Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png 
+ used on input line 349.
+(pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+LaTeX Info: Redefining \. on input line 349.
+LaTeX Info: Redefining \% on input line 349.
+[44]
+
+LaTeX Info: Redefining \. on input line 356.
+LaTeX Info: Redefining \% on input line 356.
+[45 <./img/DETECTORES_LINEAS_400_input_vggt_SuperPoint.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png, id=637, 519.9425pt x 519.94
 25pt>
 File: ./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png Graphic file (type png)
 
 <use ./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png  use
-d on input line 346.
+d on input line 361.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 Underfull \vbox (badness 3746) has occurred while \output is active []
 
 
 
-LaTeX Info: Redefining \. on input line 351.
-LaTeX Info: Redefining \% on input line 351.
-[42 <./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png (PNG copy)>]
-<./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png, id=613, 519.9425pt x 519.9425
+LaTeX Info: Redefining \. on input line 366.
+LaTeX Info: Redefining \% on input line 366.
+[46 <./img/DETECTORES_LINEAS_400_input_vggt_D2-Net.png (PNG copy)>]
+<./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png, id=644, 519.9425pt x 519.9425
 pt>
 File: ./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png Graphic file (type png)
 <use ./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png  used 
-on input line 361.
+on input line 376.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1513,27 +1556,27 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 361.
-LaTeX Info: Redefining \% on input line 361.
-[43]
+LaTeX Info: Redefining \. on input line 376.
+LaTeX Info: Redefining \% on input line 376.
+[47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-LaTeX Info: Redefining \. on input line 370.
-LaTeX Info: Redefining \% on input line 370.
-[44 <./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 385.
+LaTeX Info: Redefining \% on input line 385.
+[48 <./img/DETECTORES_LINEAS_400_input_vggt_R2D2.png (PNG copy)>]
 
-LaTeX Info: Redefining \. on input line 377.
-LaTeX Info: Redefining \% on input line 377.
-[45]
-<./img/DETECTORES_LINEAS_400_input_vggt_lineas.png, id=638, 578.16pt x 578.16pt
+LaTeX Info: Redefining \. on input line 392.
+LaTeX Info: Redefining \% on input line 392.
+[49]
+<./img/DETECTORES_LINEAS_400_input_vggt_lineas.png, id=669, 578.16pt x 578.16pt
 >
 File: ./img/DETECTORES_LINEAS_400_input_vggt_lineas.png Graphic file (type png)
 
 <use ./img/DETECTORES_LINEAS_400_input_vggt_lineas.png>
 Package pdftex.def Info: ./img/DETECTORES_LINEAS_400_input_vggt_lineas.png  use
-d on input line 382.
+d on input line 397.
 (pdftex.def)             Requested size: 344.69766pt x 344.69318pt.
 
 
@@ -1541,33 +1584,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 382.
-LaTeX Info: Redefining \% on input line 382.
-[46]
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+[50]
 
-LaTeX Info: Redefining \. on input line 389.
-LaTeX Info: Redefining \% on input line 389.
-[47 <./img/DETECTORES_LINEAS_400_input_vggt_lineas.png>]
+LaTeX Info: Redefining \. on input line 404.
+LaTeX Info: Redefining \% on input line 404.
+[51 <./img/DETECTORES_LINEAS_400_input_vggt_lineas.png>]
 
-LaTeX Info: Redefining \. on input line 414.
-LaTeX Info: Redefining \% on input line 414.
-[48]
-<./img/SOBEL_0685_crack_mask.png, id=661, 1039.885pt x 519.9425pt>
+LaTeX Info: Redefining \. on input line 429.
+LaTeX Info: Redefining \% on input line 429.
+[52]
+<./img/SOBEL_0685_crack_mask.png, id=691, 1039.885pt x 519.9425pt>
 File: ./img/SOBEL_0685_crack_mask.png Graphic file (type png)
 <use ./img/SOBEL_0685_crack_mask.png>
-Package pdftex.def Info: ./img/SOBEL_0685_crack_mask.png  used on input line 41
-7.
+Package pdftex.def Info: ./img/SOBEL_0685_crack_mask.png  used on input line 43
+2.
 (pdftex.def)             Requested size: 344.69766pt x 172.34319pt.
 
 
-LaTeX Info: Redefining \. on input line 425.
-LaTeX Info: Redefining \% on input line 425.
-[49 <./img/SOBEL_0685_crack_mask.png>]
-<./img/SOBEL_0001_crack_mask.png, id=669, 1039.885pt x 519.9425pt>
+LaTeX Info: Redefining \. on input line 440.
+LaTeX Info: Redefining \% on input line 440.
+[53 <./img/SOBEL_0685_crack_mask.png>]
+<./img/SOBEL_0001_crack_mask.png, id=698, 1039.885pt x 519.9425pt>
 File: ./img/SOBEL_0001_crack_mask.png Graphic file (type png)
 <use ./img/SOBEL_0001_crack_mask.png>
-Package pdftex.def Info: ./img/SOBEL_0001_crack_mask.png  used on input line 43
-7.
+Package pdftex.def Info: ./img/SOBEL_0001_crack_mask.png  used on input line 45
+2.
 (pdftex.def)             Requested size: 344.69766pt x 172.34319pt.
 
 
@@ -1575,14 +1618,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 437.
-LaTeX Info: Redefining \% on input line 437.
-[50]
-<./img/ROI_0001_roi_annotation.png, id=675, 519.9425pt x 519.9425pt>
+LaTeX Info: Redefining \. on input line 452.
+LaTeX Info: Redefining \% on input line 452.
+[54]
+<./img/ROI_0001_roi_annotation.png, id=704, 519.9425pt x 519.9425pt>
 File: ./img/ROI_0001_roi_annotation.png Graphic file (type png)
 <use ./img/ROI_0001_roi_annotation.png>
 Package pdftex.def Info: ./img/ROI_0001_roi_annotation.png  used on input line 
-439.
+454.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1590,28 +1633,28 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 439.
-LaTeX Info: Redefining \% on input line 439.
-[51 <./img/SOBEL_0001_crack_mask.png>]
+LaTeX Info: Redefining \. on input line 454.
+LaTeX Info: Redefining \% on input line 454.
+[55 <./img/SOBEL_0001_crack_mask.png>]
 
-LaTeX Info: Redefining \. on input line 439.
-LaTeX Info: Redefining \% on input line 439.
-[52 <./img/ROI_0001_roi_annotation.png (PNG copy)>]
-<./img/ZONAS_0685_crack_overlay.png, id=685, 519.9425pt x 519.9425pt>
+LaTeX Info: Redefining \. on input line 454.
+LaTeX Info: Redefining \% on input line 454.
+[56 <./img/ROI_0001_roi_annotation.png (PNG copy)>]
+<./img/ZONAS_0685_crack_overlay.png, id=715, 519.9425pt x 519.9425pt>
 File: ./img/ZONAS_0685_crack_overlay.png Graphic file (type png)
 <use ./img/ZONAS_0685_crack_overlay.png>
 Package pdftex.def Info: ./img/ZONAS_0685_crack_overlay.png  used on input line
- 448.
+ 463.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
-LaTeX Info: Redefining \. on input line 453.
-LaTeX Info: Redefining \% on input line 453.
-[53
+LaTeX Info: Redefining \. on input line 468.
+LaTeX Info: Redefining \% on input line 468.
+[57
 
  <./img/ZONAS_0685_crack_overlay.png (PNG copy)>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-55.
+70.
 
 (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1620,11 +1663,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<./img/DISTANCIAS_0685_crack_overlay_roi.png, id=691, 519.9425pt x 519.9425pt>
+<./img/DISTANCIAS_0685_crack_overlay_roi.png, id=721, 519.9425pt x 519.9425pt>
 File: ./img/DISTANCIAS_0685_crack_overlay_roi.png Graphic file (type png)
 <use ./img/DISTANCIAS_0685_crack_overlay_roi.png>
 Package pdftex.def Info: ./img/DISTANCIAS_0685_crack_overlay_roi.png  used on i
-nput line 471.
+nput line 486.
 (pdftex.def)             Requested size: 344.69766pt x 344.6943pt.
 
 
@@ -1632,19 +1675,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-LaTeX Info: Redefining \. on input line 471.
-LaTeX Info: Redefining \% on input line 471.
-[54])
+LaTeX Info: Redefining \. on input line 486.
+LaTeX Info: Redefining \% on input line 486.
+[58])
 
-LaTeX Info: Redefining \. on input line 502.
-LaTeX Info: Redefining \% on input line 502.
-[55 <./img/DISTANCIAS_0685_crack_overlay_roi.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 501.
+LaTeX Info: Redefining \% on input line 501.
+[59 <./img/DISTANCIAS_0685_crack_overlay_roi.png (PNG copy)>]
 \openout2 = `./tex/4_Tecnicas_y_herramientas.aux'.
 
 
 (./tex/4_Tecnicas_y_herramientas.tex
 
-[56
+[60
 
 
 
@@ -1654,22 +1697,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[57])
+[61])
 
-LaTeX Info: Redefining \. on input line 503.
-LaTeX Info: Redefining \% on input line 503.
-[58]
+LaTeX Info: Redefining \. on input line 502.
+LaTeX Info: Redefining \% on input line 502.
+[62]
 \openout2 = `./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux'.
 
  (./tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex
 
-[59
+[63
 
 
 
 
 ]
-<./img/UNITY_par.png, id=719, 2055.68pt x 770.88pt>
+<./img/UNITY_par.png, id=750, 2055.68pt x 770.88pt>
 File: ./img/UNITY_par.png Graphic file (type png)
 <use ./img/UNITY_par.png>
 Package pdftex.def Info: ./img/UNITY_par.png  used on input line 29.
@@ -1682,8 +1725,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 29.
 LaTeX Info: Redefining \% on input line 29.
-[60]
-<./img/UNITY_vis.png, id=725, 2055.68pt x 770.88pt>
+[64]
+<./img/UNITY_vis.png, id=756, 2055.68pt x 770.88pt>
 File: ./img/UNITY_vis.png Graphic file (type png)
 <use ./img/UNITY_vis.png>
 Package pdftex.def Info: ./img/UNITY_vis.png  used on input line 31.
@@ -1692,19 +1735,19 @@ Package pdftex.def Info: ./img/UNITY_vis.png  used on input line 31.
 
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
-[61 <./img/UNITY_par.png> <./img/UNITY_vis.png (PNG copy)>])
+[65 <./img/UNITY_par.png> <./img/UNITY_vis.png (PNG copy)>])
 
-LaTeX Info: Redefining \. on input line 504.
-LaTeX Info: Redefining \% on input line 504.
-[62]
+LaTeX Info: Redefining \. on input line 503.
+LaTeX Info: Redefining \% on input line 503.
+[66]
 
-[63
+[67
 
 
 
 ]
 
-[64]
+[68]
 \openout2 = `./tex/D_Manual_programador.aux'.
 
  (./tex/D_Manual_programador.tex
@@ -1712,7 +1755,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 1.
 
 
-[65
+[69
 
 
 ] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1724,16 +1767,16 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 
 LaTeX Info: Redefining \. on input line 58.
 LaTeX Info: Redefining \% on input line 58.
-[66])
+[70])
 
-LaTeX Info: Redefining \. on input line 516.
-LaTeX Info: Redefining \% on input line 516.
-[67]
+LaTeX Info: Redefining \. on input line 515.
+LaTeX Info: Redefining \% on input line 515.
+[71]
 \openout2 = `./tex/E_Manual_usuario.aux'.
 
  (./tex/E_Manual_usuario.tex
 
-[68
+[72
 
 
 
@@ -1769,17 +1812,17 @@ o-[]main / defomstereo _ vits _ rvc . pth$
  []
 
 
-Underfull \vbox (badness 7963) has occurred while \output is active []
+Underfull \vbox (badness 1215) has occurred while \output is active []
 
 
 
-[69]
+[73]
 Overfull \hbox (31.4956pt too wide) in paragraph at lines 29--31
 []\T1/lmr/m/n/12 (-20) En $\T1/lmtt/m/n/12 src / DEFOM-[]Stereo / DEFOM-[]Stere
 o-[]main / defomstereo _ vits _ sceneflow .
  []
 
-<./img/APP_inicio.png, id=795, 410.9754pt x 221.628pt>
+<./img/APP_inicio.png, id=825, 410.9754pt x 221.628pt>
 File: ./img/APP_inicio.png Graphic file (type png)
 <use ./img/APP_inicio.png>
 Package pdftex.def Info: ./img/APP_inicio.png  used on input line 68.
@@ -1791,8 +1834,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 68.
 LaTeX Info: Redefining \% on input line 68.
-[70]
-<./img/APP_resultados.png, id=809, 410.0118pt x 223.7961pt>
+[74]
+<./img/APP_resultados.png, id=839, 410.0118pt x 223.7961pt>
 File: ./img/APP_resultados.png Graphic file (type png)
 <use ./img/APP_resultados.png>
 Package pdftex.def Info: ./img/APP_resultados.png  used on input line 78.
@@ -1805,15 +1848,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
-[71 <./img/APP_inicio.png>])
+[75 <./img/APP_inicio.png>])
 
-LaTeX Info: Redefining \. on input line 517.
-LaTeX Info: Redefining \% on input line 517.
-[72 <./img/APP_resultados.png>] (./memoria.bbl
+LaTeX Info: Redefining \. on input line 516.
+LaTeX Info: Redefining \% on input line 516.
+[76 <./img/APP_resultados.png>] (./memoria.bbl
 bibitemlist
 
 
-[73
+[77
 
 
 
@@ -1821,18 +1864,18 @@ bibitemlist
 
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
-[74])
+[78])
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 523.
+(in both cases you will find help in the memoir manual). on input line 522.
 
 
 
-LaTeX Info: Redefining \. on input line 523.
-LaTeX Info: Redefining \% on input line 523.
-[75]
+LaTeX Info: Redefining \. on input line 522.
+LaTeX Info: Redefining \% on input line 522.
+[79]
 \tf@toc=\write5
 \openout5 = `memoria.toc'.
 
@@ -1861,13 +1904,13 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 96185E584EA82C615D8893C242D9F079;5087.
  ) 
 Here is how much of TeX's memory you used:
- 20636 strings out of 475109
- 330987 string characters out of 5765325
- 973606 words of memory out of 5000000
- 42840 multiletter control sequences out of 15000+600000
- 664700 words of font info for 202 fonts, out of 8000000 for 9000
+ 20681 strings out of 475109
+ 332277 string characters out of 5765325
+ 974104 words of memory out of 5000000
+ 42878 multiletter control sequences out of 15000+600000
+ 661671 words of font info for 201 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 85i,12n,93p,1183b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,12n,93p,1746b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/shar
@@ -1881,10 +1924,10 @@ lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/
 share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/
 type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.p
 fb>
-Output written on memoria.pdf (87 pages, 15538147 bytes).
+Output written on memoria.pdf (91 pages, 16653960 bytes).
 PDF statistics:
- 974 PDF objects out of 1000 (max. 8388607)
- 779 compressed objects within 8 object streams
- 246 named destinations out of 1000 (max. 500000)
- 62384 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1008 PDF objects out of 1200 (max. 8388607)
+ 802 compressed objects within 9 object streams
+ 253 named destinations out of 1000 (max. 500000)
+ 60351 words of extra memory for PDF output out of 61914 (max. 10000000)
 
