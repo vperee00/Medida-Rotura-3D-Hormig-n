@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  1 SEP 2025 14:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.6.16)  2 SEP 2025 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1904,10 +1904,10 @@ Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 96185E584EA82C615D8893C242D9F079;5087.
  ) 
 Here is how much of TeX's memory you used:
- 20681 strings out of 475109
- 332277 string characters out of 5765325
- 974104 words of memory out of 5000000
- 42878 multiletter control sequences out of 15000+600000
+ 20682 strings out of 475109
+ 332301 string characters out of 5765325
+ 974105 words of memory out of 5000000
+ 42879 multiletter control sequences out of 15000+600000
  661671 words of font info for 201 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  85i,12n,93p,1746b,1158s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1924,7 +1924,7 @@ lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/
 share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/
 type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.p
 fb>
-Output written on memoria.pdf (91 pages, 16653960 bytes).
+Output written on memoria.pdf (91 pages, 16653899 bytes).
 PDF statistics:
  1008 PDF objects out of 1200 (max. 8388607)
  802 compressed objects within 9 object streams
