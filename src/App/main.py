@@ -17,6 +17,8 @@ from PyQt5.QtGui import QPixmap, QPainter, QPen, QColor, QBrush
 import vtk
 from vtkmodules.qt.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
 
+# --------------------------------------------------------------------------------------------------
+
 class ClickableLabel(QLabel):
     clicked = pyqtSignal()
     def mousePressEvent(self, e):
@@ -26,10 +28,12 @@ class ClickableLabel(QLabel):
     def minimumSizeHint(self):
         return QSize(0, 0)
 
+# --------------------------------------------------------------------------------------------------
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Medida Hormigón App")
+        self.setWindowTitle("Aplicación para el análisis de rotura en probetas de hormigón")
         self.resize(1700, 900)
 
         self.left_image_path  = None
@@ -49,6 +53,8 @@ class MainWindow(QMainWindow):
 
         self._create_menu()
         self._create_ui()
+        
+    # ----------------------------------------------------------------------------------------------
 
     def _create_menu(self):
         mb = self.menuBar()
@@ -63,12 +69,16 @@ class MainWindow(QMainWindow):
         act = QAction("VGGt", self, checkable=True); act.setChecked(True)
         mg.addAction(act); mm.addAction(act)
         mb.addAction("Ejecutar", self.run_model)
+        
+    # ----------------------------------------------------------------------------------------------
 
     def _prep_widget(self, w):
         w.setFrameShape(QFrame.Box)
         w.setAlignment(Qt.AlignCenter)
         w.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         w.setMinimumSize(0,0)
+        
+    # ----------------------------------------------------------------------------------------------
 
     def _create_ui(self):
         root = QWidget(); 
@@ -162,6 +172,8 @@ class MainWindow(QMainWindow):
 
         self.interactor.Initialize()
         self.vtk_widget.GetRenderWindow().Render()
+        
+    # ----------------------------------------------------------------------------------------------
 
     def select_dir(self):
         d = QFileDialog.getExistingDirectory(self, "Seleccionar carpeta", "")
@@ -169,11 +181,15 @@ class MainWindow(QMainWindow):
             self.result_dir = d
             self.dir_edit.setText(d)
             
+    # ----------------------------------------------------------------------------------------------
+            
     def select_roi_dir(self):
         d = QFileDialog.getExistingDirectory(self, "Seleccionar carpeta ROI", "")
         if d:
             self.roi_dir = d
             self.roi_edit.setText(d)
+            
+    # ----------------------------------------------------------------------------------------------
 
     def load_left(self):
         fn, _ = QFileDialog.getOpenFileName(self, "Seleccionar Izquierda", "", "Images (*.png *.jpg *.jpeg)")
@@ -181,6 +197,8 @@ class MainWindow(QMainWindow):
             self.left_image_path = fn
             pix = QPixmap(fn).scaled(self.left_lbl.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
             self.left_lbl.setPixmap(pix)
+            
+    # ----------------------------------------------------------------------------------------------
 
     def load_right(self):
         fn, _ = QFileDialog.getOpenFileName(self, "Seleccionar Derecha", "", "Images (*.png *.jpg *.jpeg)")
@@ -188,6 +206,8 @@ class MainWindow(QMainWindow):
             self.right_image_path = fn
             pix = QPixmap(fn).scaled(self.right_lbl.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation)
             self.right_lbl.setPixmap(pix)
+
+	# ----------------------------------------------------------------------------------------------
 
     def run_model(self):
         if not (self.left_image_path and self.right_image_path and self.result_dir):
@@ -216,11 +236,15 @@ class MainWindow(QMainWindow):
         self.progress_dialog = dlg
         self.model_process = proc
         
+    # ----------------------------------------------------------------------------------------------
+        
     def on_model_done(self, code, status):
         # Tras generar salida 3D, la cargamos y luego ejecutamos distancias
         self.load_model_from_files()
         self.calcular_distancias()
-        
+    
+    # ----------------------------------------------------------------------------------------------
+    
     def calcular_distancias(self):
         script = os.path.join(os.path.dirname(__file__), "vggt_Distancias.py")
         args = [
@@ -257,6 +281,8 @@ class MainWindow(QMainWindow):
         self.progress_dialog = dlg
         self.model_process = proc
         
+    # ----------------------------------------------------------------------------------------------
+        
     def on_distances_done(self, code, status):
         # Cargar overlay ROI tras cálculo de distancias
         sub = os.path.basename(os.path.normpath(self.result_dir))
@@ -270,6 +296,8 @@ class MainWindow(QMainWindow):
             self.roi_lbl.setMinimumSize(pix.size())
         else:
             QMessageBox.warning(self, "Error", f"No se encontró {sub}_crack_overlay_roi.png")
+
+	# ----------------------------------------------------------------------------------------------
 
     def load_model_from_files(self):  # Nueva función de carga
         if not self.result_dir:
@@ -330,8 +358,10 @@ class MainWindow(QMainWindow):
             self.roi_lbl.setPixmap(pix)
             self.roi_lbl.setMinimumSize(pix.size())
         else:
-            # Opcional: limpiar o dejar mensaje vacío si no existe aún
+            # limpiar o dejar mensaje vacío si no existe aún
             self.roi_lbl.clear()
+    
+    # ----------------------------------------------------------------------------------------------
             
     def _mostrar_input(self):
         img = os.path.join(self.result_dir, "input_vggt.png")
@@ -344,6 +374,8 @@ class MainWindow(QMainWindow):
            self.image_lbl.setPixmap(pix)
         else:
            self.image_lbl.clear()
+           
+    # ----------------------------------------------------------------------------------------------
 
     def on_left_click(self, obj, event):
         x,y = self.interactor.GetEventPosition()
@@ -382,8 +414,12 @@ class MainWindow(QMainWindow):
             self.image_lbl.setPixmap(disp)
         self.vtk_widget.GetRenderWindow().Render()
 
+# --------------------------------------------------------------------------------------------------
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     w = MainWindow()
     w.show()
     sys.exit(app.exec_())
+
+# --------------------------------------------------------------------------------------------------

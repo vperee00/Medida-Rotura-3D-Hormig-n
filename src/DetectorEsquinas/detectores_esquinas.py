@@ -4,8 +4,12 @@ import numpy as np
 import torch
 from transformers import AutoImageProcessor, SuperPointForKeypointDetection
 
+# --------------------------------------------------------------------------------------------------
+
 # Opcional: uso de GPU
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# --------------------------------------------------------------------------------------------------
 
 # Carga perezosa de modelos profundos
 _superpoint_processor = None
@@ -13,6 +17,7 @@ _superpoint_model = None
 _d2net_model = None
 _r2d2_model = None
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_harris_corners(image, threshold=0.01, block_size=2, ksize=3, k=0.04, dilate_resp=True):
     if isinstance(image, str):
@@ -35,6 +40,7 @@ def detect_harris_corners(image, threshold=0.01, block_size=2, ksize=3, k=0.04, 
     
     return out, corners
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_shi_tomasi(image, max_corners=100, quality=0.01, min_dist=10):
     if isinstance(image, str): img = cv2.imread(image)
@@ -51,6 +57,7 @@ def detect_shi_tomasi(image, max_corners=100, quality=0.01, min_dist=10):
         corners = np.empty((0,2), dtype=int)
     return out, corners
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_fast(image, threshold=50, nonmax=True):
     if isinstance(image, str): img = cv2.imread(image)
@@ -62,6 +69,7 @@ def detect_fast(image, threshold=50, nonmax=True):
     corners = np.array([kp.pt for kp in kps], dtype=np.float32)
     return out, corners
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_agast(image, threshold=30, nonmax=True):
     if isinstance(image, str): img = cv2.imread(image)
@@ -73,6 +81,7 @@ def detect_agast(image, threshold=30, nonmax=True):
     corners = np.array([kp.pt for kp in kps], dtype=np.float32)
     return out, corners
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_orb(image, nfeatures=200):
     if isinstance(image, str): img = cv2.imread(image)
@@ -84,6 +93,7 @@ def detect_orb(image, nfeatures=200):
     corners = np.array([kp.pt for kp in kps], dtype=np.float32)
     return out, corners
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_superpoint(image, conf_thresh=0.015):
     '''Detector SuperPoint usando HuggingFace Transformers sin reproyectar manualmente.'''
@@ -140,6 +150,7 @@ def detect_superpoint(image, conf_thresh=0.015):
     
     return out, kpts
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_d2net(image, model_file='d2_net.pth', use_cuda=False):
     '''Detector D2-Net. Asegúrate de clonar e instalar d2-net o añadirlo a PYTHONPATH.'''
@@ -160,6 +171,7 @@ def detect_d2net(image, model_file='d2_net.pth', use_cuda=False):
         corners.append((x,y))
     return out, np.array(corners)
 
+# --------------------------------------------------------------------------------------------------
 
 def detect_r2d2(image, model_config='r2d2_WASF_N16.yml', model_weights='r2d2_WASF_N16.pth'):
     '''Detector R2D2. Clona e instala r2d2 para usarlo.'''
@@ -179,6 +191,7 @@ def detect_r2d2(image, model_config='r2d2_WASF_N16.yml', model_weights='r2d2_WAS
         cv2.circle(out,(int(x),int(y)),3,(0,0,255),1)
     return out, kpts
 
+# --------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
     import argparse
@@ -258,3 +271,5 @@ if __name__ == "__main__":
         mtime = os.path.getmtime(abs_path)
         print(f"Guardado en: {abs_path} ({size} bytes, modificado: {time.ctime(mtime)})")
     print(f"Detector: {args.detector}. Se han encontrado {len(corners)} puntos.")
+
+# --------------------------------------------------------------------------------------------------

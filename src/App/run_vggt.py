@@ -9,17 +9,19 @@ import torch
 import matplotlib.pyplot as plt
 from PIL import Image
 
-# ——————————————————————————————————————————————————————————————
+# --------------------------------------------------------------------------------------------------
 # 1) Directorio donde está este script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # 2) Carpeta “Modelos/” que contiene el paquete vggt/
 MODELOS_DIR = os.path.join(SCRIPT_DIR, "Modelos")
 # Importar modulos
 sys.path.insert(0, MODELOS_DIR)
-# ——————————————————————————————————————————————————————————————
+# --------------------------------------------------------------------------------------------------
 
 from vggt.models.vggt import VGGT
 from vggt.utils.load_fn import load_and_preprocess_images
+
+# --------------------------------------------------------------------------------------------------
 
 def resize_and_save(img_path, target_h=4000):
     """
@@ -33,6 +35,8 @@ def resize_and_save(img_path, target_h=4000):
     tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
     resized.save(tmp.name)
     return tmp.name
+
+# --------------------------------------------------------------------------------------------------
 
 def main():
     # — argumentos
@@ -128,5 +132,9 @@ def main():
     del imgs, preds
     torch.cuda.empty_cache()
 
+# --------------------------------------------------------------------------------------------------
+
 if __name__ == "__main__":
     main()
+
+# --------------------------------------------------------------------------------------------------

@@ -6,6 +6,8 @@ from skimage.color import rgba2rgb
 from skimage.transform import probabilistic_hough_line
 import matplotlib.pyplot as plt
 
+# --------------------------------------------------------------------------------------------------
+
 def parse_args():
     p = argparse.ArgumentParser(
         description="Detecta líneas en una imagen usando la Transformada de Hough probabilística."
@@ -17,6 +19,8 @@ def parse_args():
     p.add_argument("--line_length",    type=int,   default=50,  help="Longitud mínima de línea.")
     p.add_argument("--line_gap",       type=int,   default=10,  help="Gap máximo entre segmentos.")
     return p.parse_args()
+
+# --------------------------------------------------------------------------------------------------
 
 def main():
     args = parse_args()
@@ -53,5 +57,9 @@ def main():
     print(f"Líneas detectadas: {len(lines)}")
     print(f"Resultado guardado en: {args.output}")
 
+# --------------------------------------------------------------------------------------------------
+
 if __name__ == "__main__":
     main()
+
+# --------------------------------------------------------------------------------------------------

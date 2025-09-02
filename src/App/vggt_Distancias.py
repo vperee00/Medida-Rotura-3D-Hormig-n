@@ -29,7 +29,8 @@ import argparse
 import numpy as np
 import cv2
 
-# Funciones de procesamiento interno (sin cambios)
+# --------------------------------------------------------------------------------------------------
+
 def load_depth_and_image(npz_path, camera_idx=0):
     data = np.load(npz_path)
     depth = data['depth'][0, camera_idx, :, :, 0]
@@ -39,24 +40,30 @@ def load_depth_and_image(npz_path, camera_idx=0):
         img = np.clip(img * 255.0, 0, 255).astype(np.uint8)
     return depth, img
 
+# --------------------------------------------------------------------------------------------------
+
 def detect_crack_mask(grad_mag, grad_thresh):
     mask = (grad_mag > grad_thresh).astype(np.uint8) * 255
     kernel = np.ones((5,5), np.uint8)
     return cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+
+# --------------------------------------------------------------------------------------------------
 
 def overlay_mask(img, mask, color=(0,0,255), alpha=0.5):
     ov = img.copy()
     ov[mask>0] = ((1-alpha)*ov[mask>0] + alpha*np.array(color)).astype(np.uint8)
     return ov
 
+# --------------------------------------------------------------------------------------------------
+
 def find_key_rows(mask, radius):
     H,W = mask.shape
     rows = []
     
-    # mask_roi: tu máscara limitada al ROI
-    # pc: world_points[0, camera] de tu .npz
+    # mask_roi: máscara limitada al ROI
+    # pc: world_points[0, camera] de .npz
     # zones = measure_zones_max(mask_roi, pc)
-    # zones será algo como [(y1,x0_1,x1_1,d1), (y2,x0_2,x1_2,d2), ...] una tupla por zona
+    # zones [(y1,x0_1,x1_1,d1), (y2,x0_2,x1_2,d2), ...] una tupla por zona
     
     H, W = mask.shape
     # encontrar componentes conectados
@@ -90,6 +97,8 @@ def find_key_rows(mask, radius):
         selected.extend(zone_selected)
     return selected
 
+# --------------------------------------------------------------------------------------------------
+
 def annotate_distances(pc, overlay, rows_info):
     for y,x0,x1 in rows_info:
         P0 = pc[y, x0]; P1 = pc[y, x1]
@@ -102,6 +111,8 @@ def annotate_distances(pc, overlay, rows_info):
         cv2.putText(overlay, f"{dist:.3f}", (mid, y-5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 1)
     return overlay
     
+# --------------------------------------------------------------------------------------------------    
+    
 def longest_run(xs):
     """
     Dado un array 1D ordenado de posiciones xs, devuelve el tramo
@@ -113,7 +124,9 @@ def longest_run(xs):
     # quedarnos con el run de mayor longitud
     best = max(runs, key=lambda r: r.size)
     return int(best[0]), int(best[-1])
-    
+
+# --------------------------------------------------------------------------------------------------
+
 def measure_zones_max(mask: np.ndarray, pc: np.ndarray) -> list:
     """
     Para cada zona conectada de la máscara (mask>0), calcula:
@@ -145,6 +158,8 @@ def measure_zones_max(mask: np.ndarray, pc: np.ndarray) -> list:
             dist = np.linalg.norm(P1 - P0)
             out.append((y, x0, x1, dist))
     return out
+
+# --------------------------------------------------------------------------------------------------
 
 def find_roi_rows_consecutive(mask: np.ndarray, num: int = 10) -> (int, int):
     """
@@ -196,6 +211,8 @@ def find_roi_rows_consecutive(mask: np.ndarray, num: int = 10) -> (int, int):
     #return y_start, y_end
     return y_end, y_start
 
+# --------------------------------------------------------------------------------------------------
+
 def procesar_predicciones ( npz_path, args ) -> (np.ndarray, np.ndarray):
     
     depth, img = load_depth_and_image(npz_path, args.camera)
@@ -206,7 +223,7 @@ def procesar_predicciones ( npz_path, args ) -> (np.ndarray, np.ndarray):
     
     return mask, img
 
-# MAIN
+# --------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Procesar un único directorio', allow_abbrev=False)
     parser.add_argument('--input_dir',  required=True, help='Directorio con predictions.npz e input_vggt.png')
@@ -263,3 +280,5 @@ if __name__ == '__main__':
     cv2.imwrite(os.path.join(args.output_dir, f"{sub}_crack_overlay_roi.png"), overlay_roi)
 
     print(f"Guardados archivos con prefijo '{sub}_' en {args.output_dir}")
+
+# --------------------------------------------------------------------------------------------------
