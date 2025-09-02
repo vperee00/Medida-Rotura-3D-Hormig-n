@@ -60,9 +60,12 @@ O de forma manual con:
 ```
 
 ## Procesar par de imágenes
-Para procesar un par de imágenes, selecciona un directorio donde se guardaran todos los archivos generados desde el botón seleccionar a la derecha del campo de texto correspondiente. Con los botones Izquierda y derecha, selecciona cada imagén del par estéro. Y con el botón Ejecutar de la parte superior comenzará el proceso. Con los datos generados previamente se puede seleccionar un nuevo par de de imágenes para que sirvan de referencia para seleccionar la zona de ROI. Si no se selecciona nada se usará uno por defecto generado previamente.
+Para procesar un par de imágenes, selecciona un directorio donde se guardarán todos los archivos generados desde el botón **Seleccionar**, situado a la derecha del campo de texto correspondiente.  
+Con los botones **Izquierda** y **Derecha**, elige cada imagen del par estéreo. Luego, con el botón **Ejecutar** de la parte superior, comenzará el proceso.  
+
+Con los datos generados previamente, se puede seleccionar un nuevo par de imágenes que sirva de referencia para escoger la zona de ROI. Si no se selecciona ninguno, se usará uno por defecto generado previamente.
 
 ## Cargar datos generados
-Para volver a visualizar los datos que se hayan procesado previamente, selecciona el directorio donde se hayan guardado todos los archivos, y a continuación desde el menú Archivo, selecciona Cargar 3D.
+Para volver a visualizar los datos procesados previamente, selecciona el directorio donde se guardaron todos los archivos y, a continuación, desde el menú **Archivo**, selecciona la opción **Cargar 3D**.
 
 # ![Licencia GPLv3](gplv3-127x51.png  "Licencia GPLv3")
